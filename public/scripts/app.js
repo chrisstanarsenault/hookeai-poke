@@ -2,7 +2,7 @@ $(() => {
   //ajax get request to get menu item information
   $.ajax({
     method: "GET",
-    url: "/api/users"
+    url: "/api/menu"
   }).done((items) => {
     for(item of items) {
       const name = $("<div>").text(item.name).appendTo($("body"));
