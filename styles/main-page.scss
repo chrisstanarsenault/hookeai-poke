@@ -18,25 +18,63 @@
 }
 
 #carousel-container {
+  display: flex;
   background-color: lightblue;
+  justify-content: center;
+  align-items: center;
 }
 
 #carouselExampleFade {
-  text-align: center;
-  height: 25%;
-  width: 25%;
+  //height: 30%;
+  width: 60%;
+  padding: 2em;
     img {
-      height: 500px;
-      weight: 500px;
+      height: 40rem;
+      width: 40rem;
     }
 }
 
 #menu-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25rem;
   background-color: lightgray;
+    .btn {
+      background-color: red;
+      height: 10rem;
+      width: 30rem;
+      font-size: 2rem;
+      font-weight: bold;
+    }
 }
 
 #user-review-container {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
   background-color: lightblue;
+    .user-review-one {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    .user-review-two {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    .user-review-avatar-one {
+      padding-right: 2rem;
+    }
+    .user-review-avatar-two {
+      padding-left: 2rem;
+    }
+    .user-review-text {
+      font-size: 2rem;
+    }
+
 }
 
 
