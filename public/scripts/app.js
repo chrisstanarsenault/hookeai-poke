@@ -1,11 +1,13 @@
 $(() => {
+  //ajax get request to get menu item information
   $.ajax({
     method: "GET",
     url: "/api/users"
-  }).done((users) => {
-    for(user of users) {
-      $("<div>").text(user.name).appendTo($("body"));
-      $("<div>").text(user.phone).appendTo($("body"));
+  }).done((items) => {
+    for(item of items) {
+      const name = $("<div>").text(item.name).appendTo($("body"));
+      $("<span>").text(` $${item.price}`).appendTo(name);
+      $("<span>").text(` - ${item.description}`).appendTo(name);
     }
   });;
 });
