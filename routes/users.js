@@ -1,18 +1,22 @@
-"use strict";
+// "use strict";
 
-const express = require('express');
-const router  = express.Router();
+// const express = require('./express');
+// const router = express.Router();
+// const helperFunc = require('../util/helper-functions');
 
-module.exports = (knex) => {
+// module.exports = knex => {
+//   router.post('/', (req, res) => {
+//     if(!req.body.text){
+//       res.status(400).json({ error: 'invalid request: no data in POST body'});
+//       return;
+//     }
 
-  router.get("/", (req, res) => {
-    knex
-      .select("*")
-      .from("users")
-      .then((results) => {
-        res.json(results);
-    });
-  });
 
-  return router;
-}
+//     .then((results)=> {
+//       res.json(results);
+//     })
+//   });
+//   return router;
+// };
+
+//name, phone number, credit card # and ccv (& possibly email)
