@@ -1,6 +1,6 @@
 exports.up = function(knex, Promise) {
   return knex.schema.table('order', function (table) {
-    table.dateTime('timestamp').default(knex.fn.now());
+    table.string('timestamp').default(new Date());
   });
 };
 

@@ -1,4 +1,9 @@
 $(() => {
+
+  const changeDate = (string) => {
+    return string.split(' ').splice(0, 5).join(' ');
+  };
+
   //ajax get request to get menu item information
   $.ajax({
     method: "GET",
@@ -10,4 +15,15 @@ $(() => {
       $("<span>").text(` - ${item.description}`).appendTo(name);
     }
   });;
+
+  //ajax get request to get past order information
+  $.ajax({
+    method: "GET",
+    url: "/api/past"
+  }).done((orders) => {
+    // for(order of orders) {
+      // $("<div>").text(order).appendTo($(".order"));
+      console.log(orders)
+    // }
+  });
 });

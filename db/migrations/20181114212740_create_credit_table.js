@@ -3,7 +3,7 @@ exports.up = function(knex, Promise) {
     table.string('card').notNullable();
     table.string('expiry').notNullable();
     table.integer('ccv').notNullable();
-    table.integer('user_id').unsigned().index().references('id').inTable('users');
+    table.integer('user_id').unsigned().index().references('id').inTable('users').onDelete('cascade');
 
   });
 };
