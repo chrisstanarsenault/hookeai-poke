@@ -1,0 +1,44 @@
+#header-container {
+  display: flex;
+  justify-content: center;
+  background-color: lightblue;
+    h1 {
+      margin: 0;
+    }
+}
+
+#full-cart-container {
+  display: flex;
+  justify-content: center;
+    #cart-container {
+      display: flex;
+      background-color: lightgrey;
+      border: 10px solid black;
+      height: 500px;
+      width: 500px;
+      justify-content: center;
+      align-items: center;
+    }
+    .cart-items {
+      display: flex;
+      align-items: stretch;
+      flex-direction: column;
+    }
+}
+
+#form-container {
+  display: flex;
+  background-color: lightblue;
+  justify-content: center;
+    #order-process-form {
+      display: flex;
+      padding: 2rem;
+      background-color: lightgoldenrodyellow;
+      height: 30rem;
+      width: 40rem;
+    }
+    .form-control {
+      width: 20rem;
+    }
+}
+
