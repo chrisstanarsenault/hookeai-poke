@@ -4,7 +4,6 @@ exports.up = function(knex, Promise) {
     table.integer('quantity').notNullable();
     table.integer('order_id').unsigned().index().references('id').inTable('order');
     table.integer('menu_id').unsigned().index().references('id').inTable('menu');
-
   });
 };
 

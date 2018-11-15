@@ -1,6 +1,6 @@
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable('credit', function (table) {
-    table.integer('card').notNullable();
+  return knex.schema.createTable('payment', function (table) {
+    table.string('card').notNullable();
     table.string('expiry').notNullable();
     table.integer('ccv').notNullable();
     table.integer('user_id').unsigned().index().references('id').inTable('users');
@@ -14,4 +14,3 @@ exports.down = function(knex, Promise) {
 
 
 
-// table.bigInteger('AddressId').unsigned().index().references('id').inTable('Address')
