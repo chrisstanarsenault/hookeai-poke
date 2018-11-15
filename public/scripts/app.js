@@ -21,9 +21,12 @@ $(() => {
     method: "GET",
     url: "/api/past"
   }).done((orders) => {
-    // for(order of orders) {
-      // $("<div>").text(order).appendTo($(".order"));
+    for(order of orders) {
+      $("<div>").text(changeDate(order.timestamp)).appendTo($(".order"));
+      $("<div>").text(`Name ${order.name}`).appendTo($(".order"));
+      $("<div>").text(`Price: ${order.price}`).appendTo($(".order"));
+      $("<div>").text(`Quantity: ${order.quantity}`).appendTo($(".order"));
       console.log(orders)
-    // }
+    }
   });
 });
