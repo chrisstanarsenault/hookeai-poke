@@ -1,11 +1,14 @@
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable('users', function (table) {
+  return knex.schema.createTable('menu', function (table) {
     table.increments('id').primary().unsigned();
     table.string('name').notNullable();
-    table.string('phone').notNullable();
+    table.integer('price').notNullable();
   });
 };
 
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTable('users');
+  return knex.schema.dropTable('menu');
 };
+
+
+
