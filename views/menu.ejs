@@ -8,6 +8,8 @@
 
   <!-- External CSS -->
   <link rel="stylesheet" href="/styles/menu-page.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/footer.css" type="text/css" />
 
   <!-- Bootstrap CDN -->
   <!-- CSS -->
@@ -18,8 +20,8 @@
 
 <body>
   <nav>
-    <!-- insert header partial here -->
-  </nav>
+     <% include ./partials/_header %>
+    </nav>
 
   <header id="header-container">
     <h1>Check out whats on the menu today!</h1>
@@ -81,7 +83,7 @@
   </section>
 
   <footer>
-    <!-- insert footer partial here -->
+      <% include ./partials/_footer %>
   </footer>
 
   <!-- JS & JQuery   -->

@@ -4,6 +4,8 @@
     <title>Hookeai Poke</title>
     <!-- External CSS -->
     <link rel="stylesheet" href="/styles/main-page.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/footer.css" type="text/css" />
 
     <!-- Bootstrap CDN -->
     <!-- CSS -->
@@ -13,17 +15,19 @@
 
   </head>
 
-  <body>
+
     <nav>
-     <!-- insert path to header partial -->
+     <% include ./partials/_header %>
     </nav>
 
-    <section>
+
+    <!-- <section>
       <div id="title-container">
         <p class="welcome-text">Welcome to:</p>
         <p class="hookeai-text">Hookeai Poke</p>
       </div>
-    </section>
+    </section> -->
+    <body>
 
     <!-- Image Carousel -->
     <section id="carousel-container">
@@ -68,7 +72,7 @@
     </section>
 
     <footer>
-      <!-- insert path to footer partial -->
+      <% include ./partials/_footer %>
     </footer>
 
     <!-- JS & JQuery   -->

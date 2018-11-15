@@ -7,6 +7,8 @@
   <title>Hookeai Poke</title>
   <!-- External CSS -->
   <link rel="stylesheet" href="/styles/checkout-page.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/footer.css" type="text/css" />
 
   <!-- Bootstrap CDN -->
   <!-- CSS -->
@@ -15,7 +17,7 @@
 </head>
 <body>
   <nav>
-    <!-- insert header partial here -->
+     <% include ./partials/_header %>
   </nav>
 
   <header id="header-container">
@@ -58,9 +60,9 @@
 
 
 
-  <footer>
-    <!-- insert footer partial here -->
-  </footer>
+    <footer>
+      <% include ./partials/_footer %>
+    </footer>
 <!-- JS & JQuery   -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
   crossorigin="anonymous"></script>

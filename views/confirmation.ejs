@@ -7,16 +7,20 @@
   <title>Hookeai Poke</title>
   <!-- External CSS -->
   <link rel="stylesheet" href="/styles/confirmation-page.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/footer.css" type="text/css" />
 
   <!-- Bootstrap CDN -->
   <!-- CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
     crossorigin="anonymous">
 </head>
-<body>
-  <header>
-    <!-- insert header partial -->
-  </header>
+
+  <nav>
+    <% include ./partials/_header %>
+  </nav>
+
+  <body>
 <h1 id="header">WooHoo!!</h1>
 
 <div id="confirmation-container">
@@ -29,7 +33,7 @@
 
 
   <footer>
-    <!-- insert footer partial -->
+    <% include ./partials/_footer %>
   </footer>
 
 <!-- JS & JQuery   -->
