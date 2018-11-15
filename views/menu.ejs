@@ -17,14 +17,16 @@
 
 
 <body>
-  <header>
+  <nav>
     <!-- insert header partial here -->
+  </nav>
+
+  <header id="header-container">
+    <h1>Check out whats on the menu today!</h1>
+    <h2>(and every day)</h2>
   </header>
 
-  <h1>Check out whats on the menu today!</h1>
-  <h2>(and every day)</h2>
-
-  <div>
+  <section id="full-menu-container">
     <div class="menu-item-container">
       <span>Item #1</span>
       <img class="menu-item-pic" src="../pictures/food/pokebowl2.jpg">
@@ -72,8 +74,11 @@
       <img class="menu-item-pic" src="../pictures/food/pokebowl2.jpg">
       <input class="btn btn-primary" type="submit" value="Add To Cart!">
     </div>
+  </section>
 
-  </div>
+  <section id="checkout-button-container">
+    <a href="./checkout"><input class="btn btn-primary" type="submit" value="Proceed to checkout"></a>
+  </section>
 
   <footer>
     <!-- insert footer partial here -->

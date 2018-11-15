@@ -1,4 +1,50 @@
-.menu-item-pic {
-  height: 10rem;
-  width: 10rem;
+#header-container {
+  display: flex;
+  justify-content: center;
+  background-color: lightgrey;
+    h1 {
+      font-size: 3rem;
+  }
+    h2 {
+      font-size: .9rem;
+    }
 }
+
+#full-menu-container {
+  display: inline-flex;
+  padding: 2rem;
+  justify-content: space-around;
+  background-color: lightblue;
+  flex-wrap: wrap;
+    .menu-item-container {
+      display:flex;
+      justify-content: center;
+      padding: 1.1rem;
+      flex-direction: column;
+    }
+    span {
+      display: flex;
+      justify-content: center;
+      background-color: white;
+    }
+    .menu-item-pic {
+      height: 20rem;
+      width: 20rem;
+    }
+}
+
+#checkout-button-container {
+  background-color: lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20rem;
+    .btn {
+      height: 10rem;
+      width: 20rem;
+      font-size: 2rem;
+    }
+
+}
+
+
