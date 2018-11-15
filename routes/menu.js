@@ -9,7 +9,9 @@ module.exports = (knex) => {
       .select("*")
       .from("menu")
       .then((results) => {
-        res.json(results);
+        let templateVars = {menu: results}
+        console.log(templateVars)
+        res.render("menu",templateVars);
     });
   });
   return router;

@@ -16,7 +16,7 @@ const knexLogger  = require('knex-logger');
 
 // Seperated Routes for each Resource
 const menuRoutes = require("./routes/menu");
-const pastOrdersRoutes = require("./routes/past_orders");
+const ordersRoutes = require("./routes/orders");
 const usersRoutes = require("./routes/users");
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
@@ -39,26 +39,14 @@ app.use("/styles", sass({
 app.use(express.static("public"));
 
 // Mount all resource routes
-app.use("/api/menu", menuRoutes(knex));
-app.use("/api/past", pastOrdersRoutes(knex));
+app.use("/menu", menuRoutes(knex));
+app.use("/orders", ordersRoutes(knex));
 // app.use("/api/users", usersRoutes(knex));
 
 // Home page
 app.get("/", (req, res) => {
   res.render("main");
 });
-
-app.get("/menu", (req, res) => {
-  res.render("menu")
-});
-
-app.get("/checkout", (req, res) => {
-  res.render("checkout")
-});
-
-app.get("/confirmation", (req, res) => {
-  res.render("confirmation")
-})
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
