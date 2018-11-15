@@ -18,7 +18,30 @@ const knexLogger  = require('knex-logger');
 const usersRoutes = require("./routes/users");
 
 
+const accountSid = 'ACca11b83c4d9f2a84ea589e3cabd69c68';
+const authToken = 'd9895972a326d1a84c4422af1c7d3fd8';
 
+
+const twilio = require('twilio');
+const client = new twilio(accountSid, authToken);
+
+let sendTexts = () => {
+client.messages.create({
+    body: 'So and so just ordered some food from you!  Get it ready!!',
+    to: '+16479902039', // Text this number
+    from: '+16474933577' // From a valid Twilio number
+  })
+  .then((message) => console.log(message.sid));
+}
+
+
+
+client.messages.create({
+    body: 'Your order from Hookeai Poke is ready for pickup!  Go to 416 Leslie St to pick up and enjoy.',
+    to: '+16479200506', // Text this number
+    from: '+16474933577' // From a valid Twilio number
+  })
+  .then((message) => console.log(message.sid));
 
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
