@@ -11,7 +11,7 @@ module.exports = (knex) => {
       .from("menu")
       .then((results) => {
         let templateVars = {menu: results}
-        console.log(templateVars)
+        console.log(templateVars);
         res.render("menu",templateVars);
     });
   });
