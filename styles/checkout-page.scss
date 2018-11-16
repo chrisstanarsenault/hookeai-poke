@@ -1,4 +1,8 @@
-#header-container {
+*{
+  font-family: Montserrat;
+}
+
+/*#header-container {
   padding-top: 124px;
   display: flex;
   justify-content: center;
@@ -7,8 +11,8 @@
       margin: 0;
     }
 }
-
-#full-cart-container {
+*/
+/*#full-cart-container {
   display: flex;
   justify-content: center;
     #cart-container {
@@ -19,27 +23,31 @@
       width: 500px;
       justify-content: center;
       align-items: center;
-    }
+    }*/
     .cart-items {
       display: flex;
       align-items: stretch;
       flex-direction: column;
+      text-align: center;
+      padding-top: 10px;
+      padding-bottom: 90px;
     }
+/*}*/
+
+.total{
+  padding-top: 20px;
+  font-size: 2rem;
 }
 
 #form-container {
   display: flex;
-  background-color: lightblue;
+  background-color: #e9ecef;
   justify-content: center;
     #order-process-form {
       display: flex;
-      padding: 2rem;
-      background-color: lightgoldenrodyellow;
-      height: 30rem;
-      width: 40rem;
     }
     .form-control {
-      width: 20rem;
+      width: 30rem;
     }
 }
 

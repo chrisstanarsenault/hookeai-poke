@@ -18,6 +18,8 @@ const knexLogger  = require('knex-logger');
 const menuRoutes = require("./routes/menu");
 const ordersRoutes = require("./routes/orders");
 
+// const usersRoutes = require("./routes/users");
+
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
@@ -40,6 +42,8 @@ app.use(express.static("public"));
 // Mount all resource routes
 app.use("/menu", menuRoutes(knex));
 app.use("/orders", ordersRoutes(knex));
+
+// app.use("/users", usersRoutes(knex));
 
 // Home page
 app.get("/", (req, res) => {
