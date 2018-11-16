@@ -75,26 +75,11 @@
   }
 }
 
-
-
-/*#menu-button-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 25rem;
-  background-color: lightgray;
-    .btn {
-      height: 10rem;
-      width: 30rem;
-      font-size: 2rem;
-    }
-}*/
-
 #user-review-container {
   display: flex;
   flex-direction: column;
   padding: 2rem;
-  background-color: lightblue;
+  background-color: white;
     .user-review-one {
       display: flex;
       flex-direction: row;
@@ -118,6 +103,65 @@
 
 }
 
+/*740*/
+@media (max-width: 740px){
+  .menu.container{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 20px;
+  }
+  .about{
+    display: inline block;
+    width: 100% !important;
+    text-align: center;
+    padding-bottom: 10px;
+  }
+  .btn{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+  }
+  .pictures{
+    display: block;
+    width: 70vw !important;
+    vertical-align: middle;
+  }
+  .carousel-inner {
+    height: 340px !important;
+
+  }
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  .menu.container{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 20px;
+  }
+  .about{
+    display: inline block;
+    width: 100% !important;
+    text-align: center;
+    padding-bottom: 10px;
+  }
+  .btn{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+  }
+  .pictures{
+    display: block;
+    width: 70vw !important;
+    vertical-align: middle;
+  }
+  .carousel-inner {
+    height: 340px !important;
+
+  }
+
+}
 
 
 
