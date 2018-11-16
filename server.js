@@ -46,7 +46,7 @@ client.messages.create({
   .then((message) => console.log(message.sid));
 }
 //function to send texts with trillio
-//sendTexts()
+sendTexts()
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
