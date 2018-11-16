@@ -40,21 +40,28 @@
       background-position: center center;
       background-repeat: no-repeat;
       display: flex;
-      justify-content: center;
+      justify-content: space-around;
       align-items: center;
+      flex-wrap: wrap;
     }
     .description-text {
       font-size: 1.5rem;
       font-weight: bold;
       opacity: 0;
+      padding: 1.2rem;
     }
     .menu-item-container:hover .image-background {
-      opacity: 0.9;
+      opacity: 1;
       background: black;
+      //transition-delay: .5s;
+      // transition-property: background;
+      //transition-timing-function: linear;
+      //transition: .25s linear;
     }
-    .image-background:hover .description-text {
+    .menu-item-container:hover .description-text {
       opacity: 1;
       color: white;
+      transition: opacity .5s linear;
     }
 
 }

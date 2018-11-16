@@ -34,7 +34,9 @@
     <% menu.forEach(function(menuItem){ %>
       <div class="menu-item-container">
         <span > <%- menuItem.name %> </span>
-        <img class="menu-item-pic" src="../pictures/food/pokebowl2.jpg">
+        <div class="image-background">
+          <div class="description-text"><%- menuItem.description %></div>
+        </div>
         <input class="btn btn-primary" type="submit" value="Add To Cart!">
       </div>
     <% }); %>

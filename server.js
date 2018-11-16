@@ -45,7 +45,7 @@ client.messages.create({
   .then((message) => console.log(message.sid));
 }
 //function to send texts with trillio
-sendTexts()
+//sendTexts()  <--------- comment this for now so texts arent sent out every time server is reset
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
