@@ -51,3 +51,15 @@ button.navbar-toggler {
 img#logo{
   width: 5%;
 }
+
+#logoutBTN{
+  -webkit-appearance: none;
+  border: 0;
+  background-color: #f7f8f9 !important;
+  color: #777 !important;
+  transition: 1;
+  outline: none;
+}
+#logoutBTN:hover{
+  color: black !important;
+}

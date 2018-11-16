@@ -18,23 +18,31 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto p-2">
-      <li class="nav-item" >
-        <a class="nav-link disabled" href="#">Logged In As: </a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-toggle="modal" data-target="#loginModal">Login</a>
-      </li>
+
+
+      <% if(user){ %>
+        <li class="nav-item" >
+          <a class="nav-link disabled" href="#">Logged In As: <%- user %> </a>
+        </li>
+      <% } else { %>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="modal" data-target="#loginModal">Login</a>
+        </li>
+      <% } %>
+
       <li class="nav-item">
         <a class="nav-link" href="/menu">Menu</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/orders/checkout">Cart</a>
       </li>
-
-
+      <% if(user){ %>
+        <form method="POST" action="/users/logout">
+          <li class="nav-item no-bullet" >
+            <button id="logoutBTN" class="nav-link">Logout</button>
+          </li>
+        </form>
+      <% } %>
 <!-- Button trigger modal -->
 
 
@@ -50,15 +58,15 @@
       </div>
       <div class="modal-body">
 
-          <form>
+    <form action="/users/login" method="POST">
     <div class="form-group">
-      <label for="exampleInputEmail1">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+      <label for="email">Email address</label>
+      <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
       <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
     </div>
     <div class="form-group">
-      <label for="exampleInputPassword1">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" placeholder="Password" required>
     </div>
     <button type="submit" class="btn btn-primary">Log In</button>
   </form>
@@ -67,7 +75,6 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Login</button>
       </div>
     </div>
   </div>

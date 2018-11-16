@@ -15,11 +15,13 @@ module.exports = (knex) => {
 // where users.id = 1;
 
   router.get("/checkout", (req, res) => {
-    res.render('checkout');
+    const templateVars = {user: req.session.user_id}
+    res.render('checkout', templateVars);
   });
 
   router.get("/confirmation", (req, res) => {
-    res.render('confirmation');
+    const templateVars = {user: req.session.user_id}
+    res.render('confirmation', templateVars);
   });
 
   //name, phone number, cardinfo (# & ccv), userid, order items, order quantity
@@ -36,7 +38,7 @@ module.exports = (knex) => {
       .join('menu', 'menu.id', '=', 'order_items.menu_id')
       .where('users.id', '=', req.params.id)
       .then((result) => {
-        const templateVars = {order: result}
+        const templateVars = {order: result, user: req.session.user_id}
         console.log(templateVars);
         res.render('pastOrders', templateVars);
     });
