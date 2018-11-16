@@ -2,13 +2,11 @@
 
 const express = require('express');
 const router  = express.Router();
-var bodyParser = require('body-parser');
 
 
 module.exports = (knex) => {
   router.post("/login", (req, res) => {
-    // console.log(req.body.email);
-    req.session.user_id = 'email@email.com';
+    req.session.user_id = req.body.email;
     res.redirect('/');
   });
 
