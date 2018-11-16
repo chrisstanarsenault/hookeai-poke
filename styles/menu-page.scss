@@ -31,6 +31,31 @@
       height: 20rem;
       width: 20rem;
     }
+    .image-background {
+      background: url("../pictures/food/pokebowl2.jpg");
+      height: 20rem;
+      width: 20rem;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .description-text {
+      font-size: 1.5rem;
+      font-weight: bold;
+      opacity: 0;
+    }
+    .menu-item-container:hover .image-background {
+      opacity: 0.9;
+      background: black;
+    }
+    .image-background:hover .description-text {
+      opacity: 1;
+      color: white;
+    }
+
 }
 
 #checkout-button-container {
@@ -44,7 +69,8 @@
       width: 20rem;
       font-size: 2rem;
     }
-
 }
+
+
 
 
