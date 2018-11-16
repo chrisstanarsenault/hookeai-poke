@@ -1,38 +1,53 @@
+body {
+  background-color: #f7f8f9 !important;
+}
 
-.nav-container {
+nav.navbar {
+   background-color: transparent;
+   background: transparent;
+   border-color: transparent;
+   padding: 40px 110px;
+   font-family: Montserrat;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem !important;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.navbar-brand small {
   display: block;
-  position: fixed;
-  height: auto;
-  width: 100%;
-  z-index: 1;
-  background-color: #a2efd8;
+  font-weight: 100;
+  text-align: left;
+  font-size: 11px;
 }
 
-.navbar-brand h1 {
-  padding-top: 15px;
-  font-family: Helvetica;
-  font-size: 60px;
-  color: black;
-  font-style: italic;
-  display: inline
-}
-
-.tree {
-  height: 90px;
-  width: 80px;
-  margin: 10px;
-}
-
-.nav-links {
-  padding-top: 30px;
+a.navbar-brand{
+  padding-top: 2px;
+  margin-right: 0.5rem;
 }
 
 
+.container-fluid{
+  text-align: center;
+}
 
+.nav-item {
+  text-align: center;
+}
 
+.navbar-nav.ml-auto{
+  padding-top: 40px !important;
+  padding-bottom: 40px !important;
+}
 
+button.navbar-toggler {
+  outline: none !important;
+  border: none;
+}
 
-
-
-
-
+img#logo{
+  width: 5%;
+}

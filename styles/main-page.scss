@@ -1,3 +1,7 @@
+*{
+  font-family: Montserrat;
+}
+
 #title-container {
   display: flex;
   background-color: lightgray;
@@ -21,9 +25,9 @@
 }
 
 #carousel-container {
-  padding-top: 124px;
-  display: flex;
-  background-color: lightblue;
+/*  padding-top: 124px;
+*/  display: flex;
+  background-color: white;
   justify-content: center;
   align-items: center;
 }
@@ -45,11 +49,9 @@
   height: 25rem;
   background-color: lightgray;
     .btn {
-      background-color: red;
       height: 10rem;
       width: 30rem;
       font-size: 2rem;
-      font-weight: bold;
     }
 }
 
@@ -80,7 +82,4 @@
     }
 
 }
-
-
-
 
