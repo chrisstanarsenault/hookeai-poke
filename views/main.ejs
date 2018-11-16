@@ -4,6 +4,8 @@
     <title>Hookeai Poke</title>
     <!-- External CSS -->
     <link rel="stylesheet" href="/styles/main-page.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/footer.css" type="text/css" />
 
     <!-- Bootstrap CDN -->
     <!-- CSS -->
@@ -13,17 +15,19 @@
 
   </head>
 
-  <body>
+
     <nav>
-     <!-- insert path to header partial -->
+     <% include ./partials/_header %>
     </nav>
 
-    <section>
+
+    <!-- <section>
       <div id="title-container">
         <p class="welcome-text">Welcome to:</p>
         <p class="hookeai-text">Hookeai Poke</p>
       </div>
-    </section>
+    </section> -->
+    <body>
 
     <!-- Image Carousel -->
     <section id="carousel-container">
@@ -67,9 +71,7 @@
       </div>
     </section>
 
-    <footer>
-      <!-- insert path to footer partial -->
-    </footer>
+
 
     <!-- JS & JQuery   -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -77,5 +79,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
       crossorigin="anonymous"></script>
   </body>
+
+      <footer>
+        <% include ./partials/_footer %>
+      </footer>
 
 </html>
