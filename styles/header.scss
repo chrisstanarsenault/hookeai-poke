@@ -2,6 +2,16 @@ body {
   background-color: #f7f8f9 !important;
 }
 
+.header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form.form{
+  display: inline-block;
+}
+
 nav.navbar {
    background-color: transparent;
    background: transparent;
@@ -50,7 +60,7 @@ button.navbar-toggler {
 }
 
 img#logo{
-  width: 5%;
+  width: 60px;
 }
 
 #logoutBTN{
