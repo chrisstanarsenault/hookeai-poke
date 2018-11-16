@@ -7,7 +7,7 @@ const ENV               = process.env.ENV || "development";
 const express           = require("express");
 const bodyParser        = require("body-parser");
 const sass              = require("node-sass-middleware");
-const cookieSession     = required("cookie-session");
+const cookieSession     = require("cookie-session");
 const app               = express();
 
 const knexConfig        = require("./knexfile");
@@ -52,7 +52,8 @@ app.use("/users", usersRoutes(knex));
 
 // Home page
 app.get("/", (req, res) => {
-  res.render("main");
+  const templateVars = {user: req.session.user_id};
+  res.render("main", templateVars);
 });
 
 app.listen(PORT, () => {

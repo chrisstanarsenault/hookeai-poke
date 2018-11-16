@@ -10,7 +10,7 @@ module.exports = (knex) => {
       .select("*")
       .from("menu")
       .then((results) => {
-        let templateVars = {menu: results}
+        let templateVars = {menu: results, user: req.session.user_id}
         console.log(templateVars);
         res.render("menu",templateVars);
     });
