@@ -45,7 +45,7 @@
       <form>
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="text" class="form-control" id="email" placeholder="Enter your e-mail address"
+          <input type="text" class="form-control" id="email3" placeholder="Enter your e-mail address"
           <% if(user){ %>
             value="<%- user %>"
           <% } %>
@@ -88,7 +88,7 @@
           <div class="head">Payment Details </div>
           <div class="form-group">
             <label for="email">Email address</label>
-            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email"
+            <input type="email" class="form-control" id="email2" aria-describedby="emailHelp" placeholder="Enter email"
             <% if(user){ %>
               value="<%- user %>"
             <% } %>
@@ -136,35 +136,38 @@
         dataType: 'json'
         })
         .then((menuItems) => {
+          let total = 0;
           menuItems.forEach((menuItem) => {
             const quantity = countOfItems[menuItem.id]
             const $menuItem = $(`
             <div class="menu-item-container">
-              <span>  ${menuItem.name} - $ ${menuItem.price/100} - ${quantity} </span>
-              <img class="menu-item-pic" src="../pictures/food/pokebowl2.jpg">
+              <span>  ${menuItem.name} - $ ${menuItem.price/100} - QUANTITY: ${quantity} - (${menuItem.price/100 * quantity}) </span>
             </div>
             `);
-           $('#full-menu-container').append($menuItem);
+            total += menuItem.price/100 * quantity;
+            $('#full-menu-container').append($menuItem);
 
           })
+          // implement total here (right now just says hello)
+          $('#full-menu-container').append('TOTAL:  ', total);
 
         });
     });
     // variable 'container' set to cart items container
-   const container = document.querySelector(".cart-items");
-   // variable 'cart' set to local storage menu items selected by user
-    const cart = JSON.parse(localStorage.getItem("cart"));
-    for (const itemId of cart) {
+   // const container = document.querySelector(".cart-items");
+   // // variable 'cart' set to local storage menu items selected by user
+   //  const cart = JSON.parse(localStorage.getItem("cart"));
+   //  for (const itemId of cart) {
 
-      let listItem = document.createElement('p');
-      listItem.innerText = `Item id ${itemId} `;
-      container.appendChild(listItem);
+   //    let listItem = document.createElement('p');
+   //    listItem.innerText = `Item id ${itemId} `;
+   //    container.appendChild(listItem);
 
 
 
-      // need to do an Ajax request to get info about item
+   //    // need to do an Ajax request to get info about item
 
-    };
+   //  };
 
 
 
