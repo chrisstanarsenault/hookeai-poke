@@ -99,7 +99,7 @@ app.post('/sms/customer/ready', (req, res) => {
 })
 
 
-//function to send texts with trillio <---- comment out when not in use
+//function to send texts with trillio <---- comment out when not in use!!!
 // sendTexts()
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
