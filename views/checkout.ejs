@@ -183,6 +183,7 @@
    const container = document.querySelector(".cart-items");
    // variable 'cart' set to local storage menu items selected by user
     const cart = JSON.parse(localStorage.getItem("cart"));
+    
     for (const itemId of cart) {
 
       let listItem = document.createElement('p');
