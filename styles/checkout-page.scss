@@ -39,7 +39,9 @@ div.cart-items {
 }
 
 
-
+.form-group.row{
+  display: table;
+}
 div.payment {
   display: flex;
   justify-content: center;
