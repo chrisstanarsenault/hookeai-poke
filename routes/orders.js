@@ -9,10 +9,10 @@ module.exports = (knex) => {
   router.post("/checkout", (req, res) => {
 
     // *** After Merged ***
-    // Cart = req.body.cart;
+    // cart = req.body.cart;
 
     // test obj
-    let Cart = [{
+    let cart = [{
       quantity: 2,
       menu_id: 1
     }, {
@@ -49,7 +49,7 @@ module.exports = (knex) => {
             return results[0];
           })
           .then((order_id) => {  
-            Promise.all(Cart.map((item) => {
+            Promise.all(cart.map((item) => {
               return knex.insert([{
                 order_id: order_id,
                 menu_id: item.menu_id,
