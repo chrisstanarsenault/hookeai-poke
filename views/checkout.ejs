@@ -102,14 +102,11 @@
             const quantity = countOfItems[menuItem.id]
             const $menuItem = $(`
             <div class="menu-item-container">
-              <span>  ${menuItem.name} - $ ${menuItem.price/100} - ${quantity} </span>
-              <img class="menu-item-pic" src="../pictures/food/pokebowl2.jpg">
+              <span>  ${menuItem.name} - $ ${menuItem.price/100} - ${quantity} - (${menuItem.price/100 * quantity})</span>
             </div>
             `);
            $('#full-menu-container').append($menuItem);
-
           })
-
         });
     });
     // variable 'container' set to cart items container
@@ -121,10 +118,6 @@
       let listItem = document.createElement('p');
       listItem.innerText = `Item id ${itemId} `;
       container.appendChild(listItem);
-
-
-
-      // need to do an Ajax request to get info about item
 
     };
 
