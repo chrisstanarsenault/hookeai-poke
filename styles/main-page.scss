@@ -2,6 +2,27 @@
   font-family: Montserrat;
 }
 
+.container-fluid {
+  padding: 0 !important;
+  #mainIMG{
+    width: 98vw;
+    transition: 1s;
+  }
+  #mainIMG:hover{
+    opacity: 0.9;
+    -webkit-box-shadow: 0px 2px 14px -1px rgba(0,0,0,0.65);
+-moz-box-shadow: 0px 2px 14px -1px rgba(0,0,0,0.65);
+box-shadow: 0px 2px 14px -1px rgba(0,0,0,0.65);
+  }
+}
+
+.centered {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 #title-container {
   display: flex;
   background-color: lightgray;
@@ -24,42 +45,52 @@
     }
 }
 
-#carousel-container {
-/*  padding-top: 124px;
-*/  display: flex;
-  background-color: white;
-  justify-content: center;
-  align-items: center;
-}
-
-#carouselExampleFade {
-  //height: 30%;
-  width: 60%;
-  padding: 2em;
-    img {
-      height: 40rem;
-      width: 40rem;
-    }
-}
-
-#menu-button-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 25rem;
-  background-color: lightgray;
-    .btn {
-      height: 10rem;
-      width: 30rem;
-      font-size: 2rem;
-    }
+.menu.container{
+  padding: 40px 0;
+  display: table;
+  button.btn-info {
+    display: flex;
+    color: #6A7E85 !important;
+    text-transform: uppercase;
+    background: #ffffff;
+    padding: 20px;
+    border: 4px solid #6A7E85 !important;
+    border-radius: 6px;
+  }
+  button.btn-info:hover {
+    color: #494949 !important;
+    border-radius: 50px;
+    border-color: #494949 !important;
+    transition: all 0.3s ease 0s;
+  }
+  .about{
+    width: 30vw;
+    text-align: left;
+  }
+  .pictures{
+    display: table-cell;
+    width: 35vw;
+    vertical-align: middle;
+  }
+  .carousel-inner {
+    height: 340px !important;
+  }
+  h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: "comic sans ms";
+  }
+  p {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+  }
 }
 
 #user-review-container {
   display: flex;
   flex-direction: column;
   padding: 2rem;
-  background-color: lightblue;
+  background-color: white;
     .user-review-one {
       display: flex;
       flex-direction: row;
@@ -73,13 +104,119 @@
     }
     .user-review-avatar-one {
       padding-right: 2rem;
+      height: 15rem;
+      width: 15rem;
     }
     .user-review-avatar-two {
       padding-left: 2rem;
+      height: 15rem;
+      width: 15rem;
     }
     .user-review-text {
       font-size: 2rem;
+      color: white;
+    }
+    .speech-bubble-left {
+      position: relative;
+      background: #00aabb;
+      border-radius: 3em;
+      padding: 2rem;
     }
 
+    .speech-bubble-left:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 0;
+      height: 0;
+      border: 20px solid transparent;
+      border-right-color: #00aabb;
+      border-left: 0;
+      border-top: 0;
+      margin-top: -10px;
+      margin-left: -20px;
+    }
+    .speech-bubble-right {
+      position: relative;
+      background: #00aabb;
+      border-radius: 3em;
+      padding: 2rem;
+    }
+    .speech-bubble-right:after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      width: 0;
+      height: 0;
+      border: 20px solid transparent;
+      border-left-color: #00aabb;
+      border-right: 0;
+      border-top: 0;
+      margin-top: -10px;
+      margin-right: -20px;
+    }
 }
+
+/*740*/
+@media (max-width: 740px){
+  .menu.container{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 20px;
+  }
+  .about{
+    display: inline block;
+    width: 100% !important;
+    text-align: center;
+    padding-bottom: 10px;
+  }
+  .btn{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+  }
+  .pictures{
+    display: block;
+    width: 70vw !important;
+    vertical-align: middle;
+  }
+  .carousel-inner {
+    height: 340px !important;
+  }
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  .menu.container{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 20px;
+  }
+  .about{
+    display: inline block;
+    width: 100% !important;
+    text-align: center;
+    padding-bottom: 10px;
+  }
+  .btn{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+  }
+  .pictures{
+    display: block;
+    width: 70vw !important;
+    vertical-align: middle;
+  }
+  .carousel-inner {
+    height: 340px !important;
+
+  }
+
+}
+
+
 

@@ -1,58 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Hookeai Poke</title>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Hookeai Poke</title>
 
   <!-- External CSS -->
   <link rel="stylesheet" href="/styles/menu-page.css" type="text/css" />
   <link rel="stylesheet" href="/styles/header.css" type="text/css" />
   <link rel="stylesheet" href="/styles/footer.css" type="text/css" />
 
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <!--   external JS -->
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+
   <!-- Bootstrap CDN -->
   <!-- CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
     crossorigin="anonymous">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+
 </head>
 
 
 <body>
-  <nav>
-     <% include ./partials/_header %>
-    </nav>
 
-  <header id="header-container">
-    <h1>Check out whats on the menu today!</h1>
-    <h2>(and every day)</h2>
-  </header>
+
+ <% include ./partials/_header %>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-3">Menu <img class="img" src="../pictures/menu/ricebowl.png"></h1>
+      <p class="lead">Choose from one of our many offerings!</p>
+    </div>
+  </div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-8 content">
+             <section id="full-menu-container">
+              <% menu.forEach(function(menuItem){ %>
+                <div class="menu-item-container">
+                  <img class="menu-item-pic" src="<%- menuItem.url %>">
+                  <div class="description">
+                    <div><strong><%-menuItem.name %></strong></div>
+                    <div> <%-menuItem.description %></div>
+                    <div class="price"> $<%-menuItem.price %> </div>
+                  </div>
+                  <input class="btn btn-secondary" type="submit" value="+">
+                </div>
+              <% }); %>
+            </section>
+        </div>
+        <div class="col-4">
+            <div class="sticky-top">
+                <h4><img id="puffer" src="../pictures/menu/pufferfish.png"> Your Cart</h4>
+                <div class="order">
+                  <a href="#" class="delete"><i class="far fa-trash-alt"></i></a>
+                  <div class="item">Poke Bowl 1</div>
+                  <div class="price">$11.99</div>
+                </div>
+
+                <div class="order">
+                  <a href="#" class="delete"><i class="far fa-trash-alt"></i></a>
+                  <div class="item">Poke Bowl 1</div>
+                  <div class="price">$11.99</div>
+                </div>
 
   <section id="full-menu-container">
-
-
     <% menu.forEach(function(menuItem){ %>
       <div class="menu-item-container">
-        <span > <%- menuItem.name %> </span>
+        <span> <%- menuItem.name %> - $<%- menuItem.price/100 %> </span>
         <img class="menu-item-pic" src="../pictures/food/pokebowl2.jpg">
-        <input class="btn btn-primary" type="submit" value="Add To Cart!">
+        <button class="btn btn-primary" type="button" onclick="addToCart(<%- menuItem.id %>)">Add To Cart!</button>
       </div>
     <% }); %>
-
   </section>
 
   <section id="checkout-button-container" class="item">
-    <a href="/orders/checkout"><input class="btn btn-primary" type="submit" value="Proceed to checkout"></a>
+    <form action="/orders/checkout" method="GET">
+      <input id="itemsIdForm" type="hidden" value="">
+      <input class="checkout-button" type="submit" value="Proceed to Checkout">
+    </form>
   </section>
 
-  <footer>
+
+                <div class="total">Total</div>
+
+        <form action="/orders/checkout" >
+        <button type="submit" class="btn btn-info">Check me out!<a href="/orders/checkout"></a></button>
+            </div>
+          </div>
+        </form>
+        </div>
+    <div class="footer">
       <% include ./partials/_footer %>
-  </footer>
+    </div>
+</div>
+
+<!--   <section id="checkout-button-container" class="item">
+    <a href="/orders/checkout"><input class="btn btn-primary" type="submit" value="Proceed to checkout"></a>
+  </section> -->
+
+
+
+
 
   <!-- JS & JQuery   -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
+<!--   <script src="https://code.jquery.com/jquery-3.0.0.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
     crossorigin="anonymous"></script>
+
+  <script>
+
+    $( document ).ready(function() {
+        getItems();
+    });
+
+    function getItems() {
+      let currentCart = localStorage.getItem("cart");
+      $("#itemsIdForm").attr("value", JSON.stringify(currentCart));
+    }
+
+    function addToCart(id) {
+      let currentCart = localStorage.getItem("cart");
+      if (currentCart === null) {
+        currentCart = [];
+      } else {
+        currentCart = JSON.parse(currentCart);
+      }
+      currentCart.push(id);
+      localStorage.setItem("cart", JSON.stringify(currentCart));
+    };
+
+//     $( ".checkout-button" ).on( "click", function(event) {
+//       event.preventDefault();
+//       $.ajax( {
+//         method: 'GET',
+//         url: '/orders/checkout',
+//         // dataType: 'json'
+//     })
+//     .then((data) => {
+
+//       });
+// });
+
+
+
+  </script>
 </body>
 </html>

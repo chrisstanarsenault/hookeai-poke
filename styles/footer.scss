@@ -3,12 +3,23 @@ body {
   font-family: Montserrat;
 }
 
-div#copyright {
+div.copyright {
   text-align: center;
-  padding: 3rem 0;
+  padding: 3rem 0 0 0;
   font-size: 14px;
 }
 
+.footer {
+  margin: 0;
+  text-align: center;
+  padding: 0;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+#turtle{
+  width: 25px;
+}
 
 
 

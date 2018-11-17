@@ -1,48 +1,93 @@
 *{
   font-family: Montserrat;
 }
-
-/*#header-container {
-  padding-top: 124px;
+hr{
+  color: grey;
+}
+.head{
+    font-size: 20px;
+    // margin-bottom: 20px;
+    text-align: left;
+}
+div.cart-items {
+  width: 45%;
   display: flex;
   justify-content: center;
-  background-color: lightblue;
-    h1 {
-      margin: 0;
-    }
+  /*align-content: center;*/
+  flex-direction: column;
+  margin: auto;
+  margin-bottom: 1rem;
+
+  .quantity-select{
+    width: 13%;
+    margin-left: 10px;
+  }
+  .item{
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+  }
+  .price{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    flex-direction: row;
+    margin: auto;
+  }
+  .form-group{
+  }
+}
+
+div.payment {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+  width: 100%;
+  padding: 0;
+  align-items: flex-start;
+  font-size: 20px;
+  padding-bottom: 2rem;
+  align-items: center;
+}
+/*
+@media (min-width: 720px){
+  .quantity-select{
+    width: 50%;
+  }
 }
 */
-/*#full-cart-container {
-  display: flex;
-  justify-content: center;
-    #cart-container {
-      display: flex;
-      background-color: lightgrey;
-      border: 10px solid black;
-      height: 500px;
-      width: 500px;
-      justify-content: center;
-      align-items: center;
-    }*/
-    .cart-items {
-      display: flex;
-      align-items: stretch;
-      flex-direction: column;
-      text-align: center;
-      padding-top: 10px;
-      padding-bottom: 90px;
-    }
-/*}*/
-
 .total{
   padding-top: 20px;
-  font-size: 2rem;
+  font-size: 18px;
+  padding-bottom: 20px;
+}
+
+.totalprice {
+  padding-top: 20px;
+  font-size: 20px;
+  padding-bottom: 20px;
+}
+#emailHelp{
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+.card{
+  display: flex;
+
+}
+.form-group{
+  font-size: 18px;
+}
+
+.payment{
+  background-color: #e9ecef;
+  width: 100%;
 }
 
 #form-container {
   padding: 1rem;
   display: flex;
-  background-color: #e9ecef;
   justify-content: center;
     #order-process-form {
       display: flex;
@@ -60,4 +105,9 @@
       }
     }
 }
+
+
+
+
+
 
