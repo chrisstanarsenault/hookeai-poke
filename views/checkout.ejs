@@ -34,23 +34,58 @@
         <p class="total">TOTAL: $31.49</p>
       </span>
 
-  <section id="form-container">
+  <section id="form-container"> 
     <div id="order-process-form">
-      <form>
+      <form method="POST" action="/orders/checkout">
         <div class="form-group">
-          <label for="exampleInputEmail1">Full Name</label>
-          <input type="text" class="form-control" id="name-input-field" placeholder="Enter your name">
+          <label for="inputName">Full Name</label>
+          <input type="text" class="form-control" id="name-input-field" placeholder="Enter your name" name="email" required>
         </div>
         <div class="form-group">
-          <label for="exampleInputEmail1">Phone number</label>
-          <input type="tel" class="form-control" id="phone-input-field" placeholder="Enter phone number">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Credit Card Number</label>
-          <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Credit Card number">
+          <label for="inputPhone">Phone number</label>
+          <input type="tel" class="form-control" id="phone-input-field" placeholder="xxxxxxxxxx"  name ="phone-number" pattern="[0-9]{10}" required>
         </div>
 
-        <button type="submit" class="btn btn-primary">Feed Me!</button>
+        <div class="form-group">
+         <label for="control-label">Card Number</label>
+          <div class="">
+            <input type="text" class="form-control" name="card-num" id="card-num" placeholder="xxxxxxxxxxxx" pattern="[0-9]{16}" required>
+          </div>
+        </div>
+        <div class="form-group">
+         <label for="control-label">Expiration Date</label>
+            <div id = "exp"> 
+            <select class="form-control" name="ex-month">
+              <option value="01">01</option>
+              <option value="02">02</option>
+              <option value="03">03</option>
+              <option value="04">04</option>
+              <option value="05">05</option>
+              <option value="06">06</option>
+              <option value="07">07</option>
+              <option value="08">08</option>
+              <option value="09">09</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+            </select>       
+            <select class="form-control" name="ex-year">
+              <option value="18">2018</option>
+              <option value="19">2019</option>
+              <option value="20">2020</option>
+              <option value="21">2021</option>
+              <option value="22">2022</option>
+            </select>            
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="control-label">CVV</label>
+          <div >
+            <input type="text" class="form-control" name="cvv" id="cvv" placeholder="xxx" pattern="[0-9]{3}" required>
+          </div>
+        </div>
+
+        <button  type="submit" class="btn btn-primary">Feed Me!</button>
       </form>
     </div>
   </section>
