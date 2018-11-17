@@ -1,45 +1,94 @@
-#header-container {
-  padding-top: 124px;
+*{
+  font-family: Montserrat;
+}
+hr{
+  color: grey;
+}
+.head{
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+div.cart-items {
+  width: 45%;
   display: flex;
   justify-content: center;
-  background-color: lightblue;
-    h1 {
-      margin: 0;
-    }
+  /*align-content: center;*/
+  flex-direction: column;
+  margin: auto;
+  padding-left: 120px;
+
+  .quantity-select{
+    width: 13%;
+    margin-left: 10px;
+  }
+  .item{
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+  }
+  .price{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    flex-direction: row;
+    margin: auto;
+  }
+  .form-group{
+  }
 }
 
-#full-cart-container {
+
+
+div.payment {
   display: flex;
   justify-content: center;
-    #cart-container {
-      display: flex;
-      background-color: lightgrey;
-      border: 10px solid black;
-      height: 500px;
-      width: 500px;
-      justify-content: center;
-      align-items: center;
-    }
-    .cart-items {
-      display: flex;
-      align-items: stretch;
-      flex-direction: column;
-    }
+  flex-direction: column;
+  margin: auto;
+  width: 45%;
+  padding: 0;
+  align-items: flex-start;
+  font-size: 20px;
+  padding-left: 120px;
+
+}
+/*
+@media (min-width: 720px){
+  .quantity-select{
+    width: 50%;
+  }
+}
+*/
+.total{
+  padding-top: 20px;
+  font-size: 18px;
+  padding-bottom: 20px;
 }
 
-#form-container {
-  display: flex;
-  background-color: lightblue;
-  justify-content: center;
-    #order-process-form {
-      display: flex;
-      padding: 2rem;
-      background-color: lightgoldenrodyellow;
-      height: 30rem;
-      width: 40rem;
-    }
-    .form-control {
-      width: 20rem;
-    }
+.totalprice {
+  padding-top: 20px;
+  font-size: 20px;
+  padding-bottom: 20px;
 }
+#emailHelp{
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+#card{
+  width: 70%;
+}
+#cvv{
+  width: 30%;
+}
+.card{
+  display: flex;
+}
+.form-group{
+  font-size: 18px;
+}
+
+
+
+
 
