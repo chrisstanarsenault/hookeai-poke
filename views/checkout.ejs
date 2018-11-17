@@ -101,7 +101,7 @@
         })
         .then((menuItems) => {
           menuItems.forEach((menuItem) => {
-            const quantity = countOfItems[menuItem.id]
+            let quantity = countOfItems[menuItem.id]
             const $quantitySelect = $(`<select class="form-control quantity-select" >
                 <option>1</option>
                 <option>2</option>
@@ -121,16 +121,29 @@
             </div>
             `);
 
+            const $addButton = $('<i>').attr('class', 'fas fa-plus');
+
 
     // const $likeButton = $('<i>').attr('class', 'fas fa-heart').text(obj.likes).appendTo($icons);
 
            const $menuForm = $('.item-container').append($quantitySelect);
             $($menuForm).append($menuItem);
-           const $addButton  = $('<i>').attr('class', 'fas fa-plus').appendTo($menuForm);
-            $($menuForm).append(quantity);
+           $($addButton).appendTo($menuForm);
+            const $quantity = $($menuForm).append(quantity);
            const $deleteButton  = $('<i>').attr('class', 'fas fa-minus').appendTo($menuForm);
+
+
+          $($addButton).on('click', function() {
+          quantity++;
+
+          console.log('added')
+          console.log(quantity)
           })
+
+          })
+
         });
+
     });
     // variable 'container' set to cart items container
    const container = document.querySelector(".cart-items");
