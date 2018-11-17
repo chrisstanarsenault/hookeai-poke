@@ -102,22 +102,11 @@
         .then((menuItems) => {
           menuItems.forEach((menuItem) => {
             const quantity = countOfItems[menuItem.id]
-            const $quantitySelect = $(`<select class="form-control quantity-select" >
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
-                </select>`
-            );
+            const $quantitySelect = $('<div>')
+
             const $menuItem = $(`
             <div class="item">
-              <span>  ${menuItem.name} - $ ${menuItem.price/100} </span>
+              <span>  ${menuItem.name} - $ ${menuItem.price/100}</span>
             </div>
             `);
 
@@ -125,10 +114,11 @@
     // const $likeButton = $('<i>').attr('class', 'fas fa-heart').text(obj.likes).appendTo($icons);
 
            const $menuForm = $('.item-container').append($quantitySelect);
-            $($menuForm).append($menuItem);
-           const $addButton  = $('<i>').attr('class', 'fas fa-plus').appendTo($menuForm);
+            const $addButton  = $('<i>').attr('class', 'fas fa-plus').appendTo($menuForm);
             $($menuForm).append(quantity);
-           const $deleteButton  = $('<i>').attr('class', 'fas fa-minus').appendTo($menuForm);
+            const $deleteButton  = $('<i>').attr('class', 'fas fa-minus').appendTo($menuForm);
+            $($menuForm).append($menuItem);
+
           })
         });
     });
