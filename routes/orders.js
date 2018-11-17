@@ -14,9 +14,57 @@ module.exports = (knex) => {
 // join menu on menu.id = order_items.menu_id
 // where users.id = 1;
 
+  router.post("/getItemInformation", (req, res) => {
+    console.log(req.body);
+    var fullItem = JSON.parse(req.body.itemIds)
+    var itemIds = Object.keys(fullItem)
+
+    knex
+      .select('id', 'name', 'price')
+      .from('menu')
+      // .where('menu.id', '=', req.query.itemIds)
+      .then((results) => {
+        var filteredResults = results.filter((item) => {
+          return itemIds.indexOf(item.id.toString()) > -1;
+        })
+        console.log(results);
+
+        res.json(filteredResults);
+      })
+
+
+  });
+
   router.get("/checkout", (req, res) => {
-    const templateVars = {user: req.session.user_id}
-    res.render('checkout', templateVars);
+     knex
+      .select('id', 'name', 'price')
+      .from('menu')
+      .then((results) => {
+        console.log(results);
+        const templateVars = {user: req.session.user_id,
+                              menuNames: results}
+        res.render('checkout', templateVars)
+      });
+
+
+
+  });
+
+  router.post("/checkout", (req, res) => {
+    console.log(req.body);
+
+     knex
+      .select('name')
+      .from('menu')
+      .where('menu.id', '=', itemId)
+      .then((results) => {
+
+        console.log(results);
+          const templateVars = {user: req.session.user_id,
+                                items: results}
+          res.render('checkout', templateVars);
+          })
+
   });
 
   router.get("/confirmation", (req, res) => {
@@ -28,6 +76,8 @@ module.exports = (knex) => {
   // router.post("/checkout", (req, res) => {
 
   // });
+
+
 
   router.get("/:id", (req, res) => {
     knex
