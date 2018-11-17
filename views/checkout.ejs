@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="/styles/header.css" type="text/css" />
   <link rel="stylesheet" href="/styles/footer.css" type="text/css" />
 
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
 
@@ -25,58 +27,22 @@
       <p class="lead">You're only moments away from recieving the best poke you've ever had in your life</p>
     </div>
   </div>
-
+<!--
   <section id="full-menu-container">
 
-
-    </section>
-
-
-      <!-- <span class="cart-items">
-        <p>1 X Item#1 Dummy $6.50</p>
-        <p>2 X Item#2 Dummy $10.99</p>
-        <p>1 X Item#3 Dummy $7.75</p>
-        <p>3 X Item#4 Dummy $6.25</p>
-        <p class="total">TOTAL: $31.49</p>
-      </span> -->
+    </section> -->
 
   <section id="form-container">
     <div id="order-process-form">
       <form>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="text" class="form-control" id="email" placeholder="Enter your e-mail address"
-          <% if(user){ %>
-            value="<%- user %>"
-          <% } %>
-          >
-        </div>
-        <div class="form-group">
-          <label for="phone">Phone number</label>
-          <input type="tel" class="form-control" id="phone-input-field" placeholder="Enter phone number">
-        </div>
-        <div class="form-group">
-          <label for="credit">Credit Card Number</label>
-          <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Credit Card Number">
       <div class="cart-items">
         <div class="head">Checkout</div>
         <hr>
-        <div class="form-group row">
-          <label class="quantity" for="quantity"></label>
-          <select class="form-control quantity-select" id="quantity">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>10</option>
-          </select>
-          <div class="item">Poke Bowl 1</div>
-          <div class="price">9.50</div>
+        <div class="form-group row item-container">
+
+
+          <section class="item"></section>
+          <div class="price"></div>
         </div>
 
         <div class="total">TOTAL: 10.00</div>
@@ -116,7 +82,6 @@
 
   <script>
     $( document ).ready(function() {
-      // let currentCart = localStorage.getItem("cart");
       let currentCart = JSON.parse(localStorage.getItem("cart"));
 
       const countOfItems = {};
@@ -126,7 +91,6 @@
 
         countOfItems[item] = countOfItems[item] + 1;
       })
-
       $.ajax( {
         method: 'POST',
         url: '/orders/getItemInformation',
@@ -138,16 +102,34 @@
         .then((menuItems) => {
           menuItems.forEach((menuItem) => {
             const quantity = countOfItems[menuItem.id]
+            const $quantitySelect = $(`<select class="form-control quantity-select" >
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                </select>`
+            );
             const $menuItem = $(`
-            <div class="menu-item-container">
-              <span>  ${menuItem.name} - $ ${menuItem.price/100} - ${quantity} </span>
-              <img class="menu-item-pic" src="../pictures/food/pokebowl2.jpg">
+            <div class="item">
+              <span>  ${menuItem.name} - $ ${menuItem.price/100} </span>
             </div>
             `);
-           $('#full-menu-container').append($menuItem);
 
+
+    // const $likeButton = $('<i>').attr('class', 'fas fa-heart').text(obj.likes).appendTo($icons);
+
+           const $menuForm = $('.item-container').append($quantitySelect);
+            $($menuForm).append($menuItem);
+           const $addButton  = $('<i>').attr('class', 'fas fa-plus').appendTo($menuForm);
+            $($menuForm).append(quantity);
+           const $deleteButton  = $('<i>').attr('class', 'fas fa-minus').appendTo($menuForm);
           })
-
         });
     });
     // variable 'container' set to cart items container
@@ -155,15 +137,7 @@
    // variable 'cart' set to local storage menu items selected by user
     const cart = JSON.parse(localStorage.getItem("cart"));
     for (const itemId of cart) {
-
       let listItem = document.createElement('p');
-      listItem.innerText = `Item id ${itemId} `;
-      container.appendChild(listItem);
-
-
-
-      // need to do an Ajax request to get info about item
-
     };
 
 

@@ -30,3 +30,23 @@
 //     }
 //   });
 // });
+
+$(document).ready(function(){
+    function getItems() {
+      let currentCart = localStorage.getItem("cart");
+      $("#itemsIdForm").attr("value", JSON.stringify(currentCart));
+    }
+
+    function addToCart(id) {
+      let currentCart = localStorage.getItem("cart");
+      if (currentCart === null) {
+        currentCart = [];
+      } else {
+        currentCart = JSON.parse(currentCart);
+      }
+      currentCart.push(id);
+      localStorage.setItem("cart", JSON.stringify(currentCart));
+    };
+
+    getItems();
+});
