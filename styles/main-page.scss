@@ -6,6 +6,10 @@
   padding: 0 !important;
   #mainIMG{
     width: 98vw;
+    transition: 1s;
+  }
+  #mainIMG:hover{
+    opacity: 0.8;
   }
 }
 

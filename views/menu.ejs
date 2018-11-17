@@ -19,22 +19,25 @@
 
 
 <body>
-  <nav>
-     <% include ./partials/_header %>
-    </nav>
 
-  <header id="header-container">
-    <h1>Check out whats on the menu today!</h1>
-    <h2>(and every day)</h2>
-  </header>
+
+ <% include ./partials/_header %>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-3">Menu <img class="img" src="../pictures/menu/ricebowl.png"></h1>
+      <p class="lead">Choose from one of our many offerings!</p>
+    </div>
+  </div>
 
   <section id="full-menu-container">
-
     <% menu.forEach(function(menuItem){ %>
       <div class="menu-item-container">
-        <span > <%- menuItem.name %> </span>
         <img class="menu-item-pic" src="../pictures/food/pokebowl2.jpg">
-        <input class="btn btn-primary" type="submit" value="Add To Cart!">
+        <div class="description">
+          <span > <%- menuItem.name %> </span>
+          <span> <%- menuItem.description %> </span>
+        </div>
+        <input class="btn btn-secondary" type="submit" value="Add To Cart!">
       </div>
     <% }); %>
 

@@ -11,26 +11,30 @@
     }
 }
 
+.img{
+  padding-bottom: 10px;
+}
+
 #full-menu-container {
-  display: inline-flex;
-  padding: 2rem;
-  justify-content: space-around;
-  background-color: lightblue;
-  flex-wrap: wrap;
     .menu-item-container {
       display:flex;
-      justify-content: center;
-      padding: 1.1rem;
+      /*padding: 1.1rem;*/
       flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      margin: auto;
+      width: 80%
     }
     span {
       display: flex;
       justify-content: center;
-      background-color: white;
     }
     .menu-item-pic {
-      height: 20rem;
-      width: 20rem;
+      height: 15rem;
+      width: 18rem;
+    }
+    .description{
+
     }
 }
 
