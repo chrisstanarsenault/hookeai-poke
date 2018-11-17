@@ -14,6 +14,7 @@
   <!-- CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
     crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
 </head>
 
   <nav>
@@ -21,20 +22,26 @@
   </nav>
 
   <body>
-<h1 id="header">WooHoo!!</h1>
+    <h1 class="header">Thank You!</h1>
+      <div class="confirm-content">
+        <div class="confirm-gif">
+          <img class="checkmark" src="/images/bluecheck.gif">
+        </div>
 
-<div id="confirmation-container">
-  <span>
-    <p>Alright alright alright!  Order has been confirmed, and being put together as we speak!
-      You should be recieving an SMS confirmation shortly when it's ready to be picked up!</p>
-    <p>Thank you for dining with 'Hookeai Poke'!</p>
-  </span>
-</div>
+        <div class="confirmation-container">
+          <span>
+            <p>Alright alright alright!</p>
+            <p> Order has been confirmed, and being put together as we speak!
+            You should be recieving an SMS confirmation shortly when it's ready to be picked up.</p>
+            <p>Thank you for dining with Hookeai Poke!</p>
+          </span>
+        </div>
+      </div>
 
 
-  <footer>
-    <% include ./partials/_footer %>
-  </footer>
+<footer>
+  <% include ./partials/_footer %>
+</footer>
 
 <!-- JS & JQuery   -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
