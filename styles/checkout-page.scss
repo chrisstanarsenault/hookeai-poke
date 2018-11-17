@@ -40,6 +40,7 @@
 }
 
 #form-container {
+  padding: 1rem;
   display: flex;
   background-color: #e9ecef;
   justify-content: center;
@@ -48,6 +49,15 @@
     }
     .form-control {
       width: 30rem;
+
+    }
+    #exp{
+      display: flex;
+      width : 100%;
+
+        select{
+        width: 15rem;
+      }
     }
 }
 
