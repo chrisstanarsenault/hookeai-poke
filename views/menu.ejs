@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Hookeai Poke</title>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Hookeai Poke</title>
 
   <!-- External CSS -->
   <link rel="stylesheet" href="/styles/menu-page.css" type="text/css" />
   <link rel="stylesheet" href="/styles/header.css" type="text/css" />
   <link rel="stylesheet" href="/styles/footer.css" type="text/css" />
 
+
+
+
   <!-- Bootstrap CDN -->
   <!-- CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
     crossorigin="anonymous">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+
 </head>
 
 
@@ -29,27 +37,47 @@
     </div>
   </div>
 
-  <section id="full-menu-container">
-    <% menu.forEach(function(menuItem){ %>
-      <div class="menu-item-container">
-        <img class="menu-item-pic" src="../pictures/food/pokebowl2.jpg">
-        <div class="description">
-          <span > <%- menuItem.name %> </span>
-          <span> <%- menuItem.description %> </span>
+<div class="container">
+    <div class="row">
+        <div class="col-8 content">
+             <section id="full-menu-container">
+              <% menu.forEach(function(menuItem){ %>
+                <div class="menu-item-container">
+                  <img class="menu-item-pic" src="../pictures/food/pokebowl2.jpg">
+                  <div class="description">
+                    <div><strong><%-menuItem.name %></strong></div>
+                    <div> <%-menuItem.description %></div>
+                    <div class="price"> $<%-menuItem.price %> </div>
+                  </div>
+                  <input class="btn btn-secondary" type="submit" value="+">
+                </div>
+              <% }); %>
+            </section>
         </div>
-        <input class="btn btn-secondary" type="submit" value="Add To Cart!">
-      </div>
-    <% }); %>
-
-  </section>
-
-  <section id="checkout-button-container" class="item">
-    <a href="/orders/checkout"><input class="btn btn-primary" type="submit" value="Proceed to checkout"></a>
-  </section>
-
-  <footer>
+        <div class="col-4">
+            <div class="sticky-top">
+                <h4><img id="puffer" src="../pictures/menu/pufferfish.png"> Your Cart</h4>
+                <div>Item 1</div>
+                <div>Quantity</div>
+                <div>Price</div>
+        <form action="/orders/checkout" >
+        <button type="submit" class="btn btn-info">Check me out!<a href="/orders/checkout"></a></button>
+            </div>
+          </div>
+        </form>
+        </div>
+    <div class="footer">
       <% include ./partials/_footer %>
-  </footer>
+    </div>
+</div>
+
+<!--   <section id="checkout-button-container" class="item">
+    <a href="/orders/checkout"><input class="btn btn-primary" type="submit" value="Proceed to checkout"></a>
+  </section> -->
+
+
+
+
 
   <!-- JS & JQuery   -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
