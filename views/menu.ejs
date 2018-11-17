@@ -13,8 +13,7 @@
   <link rel="stylesheet" href="/styles/footer.css" type="text/css" />
 
 
-
-
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <!-- Bootstrap CDN -->
   <!-- CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
@@ -43,7 +42,7 @@
              <section id="full-menu-container">
               <% menu.forEach(function(menuItem){ %>
                 <div class="menu-item-container">
-                  <img class="menu-item-pic" src="../pictures/food/pokebowl2.jpg">
+                  <img class="menu-item-pic" src="<%- menuItem.url %>">
                   <div class="description">
                     <div><strong><%-menuItem.name %></strong></div>
                     <div> <%-menuItem.description %></div>
@@ -57,9 +56,21 @@
         <div class="col-4">
             <div class="sticky-top">
                 <h4><img id="puffer" src="../pictures/menu/pufferfish.png"> Your Cart</h4>
-                <div>Item 1</div>
-                <div>Quantity</div>
-                <div>Price</div>
+                <div class="order">
+                  <a href="#" class="delete"><i class="far fa-trash-alt"></i></a>
+                  <div class="item">Poke Bowl 1</div>
+                  <div class="price">$11.99</div>
+                </div>
+
+                <div class="order">
+                  <a href="#" class="delete"><i class="far fa-trash-alt"></i></a>
+                  <div class="item">Poke Bowl 1</div>
+                  <div class="price">$11.99</div>
+                </div>
+
+
+                <div class="total">Total</div>
+
         <form action="/orders/checkout" >
         <button type="submit" class="btn btn-info">Check me out!<a href="/orders/checkout"></a></button>
             </div>

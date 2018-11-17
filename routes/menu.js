@@ -5,13 +5,14 @@ const router  = express.Router();
 
 
 module.exports = (knex) => {
+
   router.get("/", (req, res) => {
     knex
       .select("*")
       .from("menu")
       .then((results) => {
-        let templateVars = {menu: results, user: req.session.user_id}
-        console.log(templateVars);
+        const templateVars = {menu: results, user: req.session.user_id};
+        console.log(templateVars.price);
         res.render("menu",templateVars);
     });
   });
