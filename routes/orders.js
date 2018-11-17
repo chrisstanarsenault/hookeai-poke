@@ -4,15 +4,6 @@ const express = require('express');
 const router  = express.Router();
 
 module.exports = (knex) => {
-  //past orders
-
-
-
-// select menu.name, order_items.quantity, menu.price from "order"
-// join users on users.id = "order".user_id
-// join order_items on "order".id = order_items.order_id
-// join menu on menu.id = order_items.menu_id
-// where users.id = 1;
 
   router.get("/checkout", (req, res) => {
     const templateVars = {user: req.session.user_id}
@@ -43,6 +34,5 @@ module.exports = (knex) => {
         res.render('pastOrders', templateVars);
     });
   });
-
   return router;
 };

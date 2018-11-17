@@ -21,6 +21,10 @@ nav.navbar {
    font-family: Montserrat;
 }
 
+.modal-title{
+  text-transform: uppercase;
+}
+
 .navbar-brand {
   font-weight: 700;
   font-size: 1.5rem !important;
@@ -61,6 +65,25 @@ button.navbar-toggler {
 
 img#logo{
   width: 60px;
+}
+
+.loginBTN {
+  color: #fff !important;
+  text-transform: uppercase;
+  background: #358BBA;
+  padding: 20px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+}
+
+.loginBTN:hover {
+  background: #434343;
+  letter-spacing: 1px;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+  transition: all 0.4s ease 0s;
 }
 
 #logoutBTN{
