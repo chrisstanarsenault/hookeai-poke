@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,8 @@
   <link rel="stylesheet" href="/styles/header.css" type="text/css" />
   <link rel="stylesheet" href="/styles/footer.css" type="text/css" />
 
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+    crossorigin="anonymous">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
@@ -19,15 +21,16 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
     crossorigin="anonymous">
 </head>
+
 <body>
-     <% include ./partials/_header %>
+  <% include ./partials/_header %>
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
       <h1 class="display-4">Review Your Cart!</h1>
       <p class="lead">You're only moments away from recieving the best poke you've ever had in your life</p>
     </div>
   </div>
-<!--
+  <!--
   <section id="full-menu-container">
 
     </section> -->
@@ -35,31 +38,32 @@
   <section id="form-container">
     <div id="order-process-form">
       <form>
-      <div class="cart-items">
-        <div class="head">Checkout</div>
-        <hr>
-        <div class="form-group row item-container">
+        <div class="cart-items">
+          <div class="head">Checkout</div>
+          <hr>
+          <div class="form-group row item-container">
 
 
-          <section class="item"></section>
-          <div class="price"></div>
+            <section class="item"></section>
+            <div class="price"></div>
+          </div>
+
+          <div class="total">Total: 10.00</div>
         </div>
 
-        <div class="total">TOTAL: 10.00</div>
-      </div>
-
-      <div class="container payment">
-        <form>
-          <hr>
-          <div class="head">Payment Details </div>
-          <div class="form-group">
-            <label for="email">Email address</label>
-            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email"
-            <% if(user){ %>
-              value="<%- user %>"
-            <% } %>
-            >
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        <div class="container payment">
+          <form>
+            <hr>
+            <div class="head">Payment Details </div>
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email"
+                <% if(user){ %>
+              value="
+              <%- user %>"
+              <% } %>
+              >
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 
               <label for="card">Card Number</label>
               <input id="card" class="form-control card" type="text" name="cardnumber" placeholder="Card Number">
@@ -67,42 +71,55 @@
               <label for="card">CVV</label>
               <input id="cvv" class="form-control cvv" type="text" name="cvv" placeholder="CVV">
             </div>
-          </div>
+        </div>
 
-        </form>
-      </div>
+      </form>
+    </div>
 
-  <footer>
+    <footer>
       <% include ./partials/_footer %>
-  </footer>
-<!-- JS & JQuery   -->
-<script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-  crossorigin="anonymous"></script>
+    </footer>
+    <!-- JS & JQuery   -->
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"></script>
 
-  <script>
-    $( document ).ready(function() {
-      let currentCart = JSON.parse(localStorage.getItem("cart"));
+    <script>
+      $(document).ready(function () {
+        let currentCart = JSON.parse(localStorage.getItem("cart"));
 
-      const countOfItems = {};
-      currentCart.forEach((item) => {
-        if (!countOfItems[item])
-          countOfItems[item] = 0;
+        const countOfItems = {};
+        currentCart.forEach((item) => {
+          if (!countOfItems[item])
+            countOfItems[item] = 0;
 
-        countOfItems[item] = countOfItems[item] + 1;
-      })
-      $.ajax( {
-        method: 'POST',
-        url: '/orders/getItemInformation',
-        data: {
-          itemIds: JSON.stringify(countOfItems)
-        },
-        dataType: 'json'
+          countOfItems[item] = countOfItems[item] + 1;
         })
-        .then((menuItems) => {
-          menuItems.forEach((menuItem) => {
-            let quantity = countOfItems[menuItem.id]
-            const $quantitySelect = $(`<select class="form-control quantity-select" >
+
+        let loadCart = () => {
+          $.ajax('/orders/checkout', {
+              method: 'GET'
+            })
+            .then(function (json) {
+              renderTweets(json)
+            });
+        };
+
+
+        $.ajax({
+            method: 'POST',
+            url: '/orders/getItemInformation',
+            data: {
+              itemIds: JSON.stringify(countOfItems)
+            },
+            dataType: 'json'
+          })
+          .then((menuItems) => {
+
+            menuItems.forEach((menuItem) => {
+              let quantity = countOfItems[menuItem.id]
+              const $quantitySelect = $(
+                `<select class="form-control quantity-select" >
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -114,47 +131,45 @@
                 <option>9</option>
                 <option>10</option>
                 </select>`
-            );
-            const $menuItem = $(`
+              );
+              const $menuItem = $(
+                `
             <div class="item">
-              <span>  ${menuItem.name} - $ ${menuItem.price/100} </span>
+<span> ${menuItem.name} - $ ${menuItem.price/100} - QUANTITY: ${quantity} - (${menuItem.price/100 * quantity})</span>
             </div>
-            `);
-
-            const $addButton = $('<i>').attr('class', 'fas fa-plus');
-
-
-    // const $likeButton = $('<i>').attr('class', 'fas fa-heart').text(obj.likes).appendTo($icons);
-
-           const $menuForm = $('.item-container').append($quantitySelect);
-            $($menuForm).append($menuItem);
-           $($addButton).appendTo($menuForm);
-            const $quantity = $($menuForm).append(quantity);
-           const $deleteButton  = $('<i>').attr('class', 'fas fa-minus').appendTo($menuForm);
+            `
+              );
+              const $addButton = $('<i>').attr('class', 'fas fa-plus');
 
 
-          $($addButton).on('click', function() {
-          quantity++;
+              // const $likeButton = $('<i>').attr('class', 'fas fa-heart').text(obj.likes).appendTo($icons);
 
-          console.log('added')
-          console.log(quantity)
-          })
-
-          })
-
-        });
-
-    });
-    // variable 'container' set to cart items container
-   const container = document.querySelector(".cart-items");
-   // variable 'cart' set to local storage menu items selected by user
-    const cart = JSON.parse(localStorage.getItem("cart"));
-    for (const itemId of cart) {
-      let listItem = document.createElement('p');
-    };
+              const $menuForm = $('.item-container').append($quantitySelect);
+              $($menuForm).append($menuItem);
+              $($addButton).appendTo($menuForm);
+              const $quantity = $($menuForm).append(quantity);
+              const $deleteButton = $('<i>').attr('class', 'fas fa-minus').appendTo($menuForm);
 
 
+              // $($addButton).on('click', function () {
+              //   quantity++;
 
-  </script>
+              //   console.log('added')
+              //   console.log(quantity)
+              // })
+
+            })
+          });
+
+      });
+      // variable 'container' set to cart items container
+      const container = document.querySelector(".cart-items");
+      // variable 'cart' set to local storage menu items selected by user
+      const cart = JSON.parse(localStorage.getItem("cart"));
+      for (const itemId of cart) {
+        let listItem = document.createElement('p');
+      };
+    </script>
 </body>
+
 </html>
