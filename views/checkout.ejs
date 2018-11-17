@@ -58,19 +58,57 @@
         <div class="form-group">
           <label for="credit">Credit Card Number</label>
           <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Credit Card Number">
+      <div class="cart-items">
+        <div class="head">Checkout</div>
+        <hr>
+        <div class="form-group row">
+          <label class="quantity" for="quantity"></label>
+          <select class="form-control quantity-select" id="quantity">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+          </select>
+          <div class="item">Poke Bowl 1</div>
+          <div class="price">9.50</div>
         </div>
 
-        <button type="submit" class="btn btn-primary">Feed Me!</button>
-      </form>
-    </div>
-  </section>
+        <div class="total">TOTAL: 10.00</div>
+      </div>
 
+      <div class="container payment">
+        <form>
+          <hr>
+          <div class="head">Payment Details </div>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email"
+            <% if(user){ %>
+              value="<%- user %>"
+            <% } %>
+            >
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 
+              <label for="card">Card Number</label>
+              <input id="card" class="form-control card" type="text" name="cardnumber" placeholder="Card Number">
 
+              <label for="card">CVV</label>
+              <input id="cvv" class="form-control cvv" type="text" name="cvv" placeholder="CVV">
+            </div>
+          </div>
 
-    <footer>
+        </form>
+      </div>
+
+  <footer>
       <% include ./partials/_footer %>
-    </footer>
+  </footer>
 <!-- JS & JQuery   -->
 <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
