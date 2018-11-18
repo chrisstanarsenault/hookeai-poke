@@ -32,7 +32,7 @@
   </div>
 
 
-  <section id="form-container"> 
+  <section id="form-container">
     <div id="order-process-form">
       <form>
       <div class="cart-items">
@@ -48,7 +48,7 @@
 
 
       <form method="POST" action="/orders/checkout">
-        
+
         <div class="cart-items">
           <div class="head">Checkout</div>
           <hr>
@@ -91,7 +91,7 @@
 
             <div class="form-group">
               <label for="control-label">Expiration Date</label>
-              <div id = "exp"> 
+              <div id = "exp">
                 <select class="form-control" name="ex-month">
                   <option value="01">01</option>
                   <option value="02">02</option>
@@ -105,14 +105,14 @@
                   <option value="10">10</option>
                   <option value="11">11</option>
                   <option value="12">12</option>
-                </select>       
+                </select>
                 <select class="form-control" name="ex-year">
                   <option value="18">2018</option>
                   <option value="19">2019</option>
                   <option value="20">2020</option>
                   <option value="21">2021</option>
                   <option value="22">2022</option>
-                </select>            
+                </select>
               </div>
             </div>
 
@@ -221,8 +221,7 @@
               const $menuItem = $(
                 `
             <div class="item">
-<span> ${menuItem.name} - $ ${menuItem.price/100} - QUANTITY: ${quantity} - (${menuItem.price/100 * quantity})</span>
-
+              <span> ${menuItem.name} - $ ${menuItem.price/100} - QUANTITY: ${quantity} - (${menuItem.price/100 * quantity})</span>
             </div>
             `
               );
