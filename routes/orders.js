@@ -19,7 +19,6 @@ module.exports = (knex) => {
     knex
       .select('id', 'name', 'price')
       .from('menu')
-      // .where('menu.id', '=', req.query.itemIds)
       .then((results) => {
         var filteredResults = results.filter((item) => {
           return itemIds.indexOf(item.id.toString()) > -1;
@@ -33,10 +32,7 @@ module.exports = (knex) => {
 router.post("/checkout", (req, res) => {
 
      console.log("aaa");
-    // *** After Merged ***
-    // cart = req.body.cart;
 
-    // test obj
     let cart = [{
       quantity: 2,
       menu_id: 1
@@ -55,7 +51,7 @@ router.post("/checkout", (req, res) => {
         .then((results) => {
           return results[0];
         })
-        .then((user_id) => 
+        .then((user_id) =>
           knex.insert([{
             card: req.body["card-num"],
             expiry: req.body["ex-month"]+"/"+req.body["ex-year"],
@@ -73,13 +69,13 @@ router.post("/checkout", (req, res) => {
           .then((results) => {
             return results[0];
           })
-          .then((order_id) => {  
+          .then((order_id) => {
             Promise.all(cart.map((item) => {
               return knex.insert([{
                 order_id: order_id,
                 menu_id: item.menu_id,
                 quantity: item.quantity,
-        
+
               }]).into('order_items')
             }))
           })
@@ -87,12 +83,6 @@ router.post("/checkout", (req, res) => {
 
       res.redirect('/orders/confirmation');
   });
-
-  // select menu.name, order_items.quantity, menu.price from "order"
-  // join users on users.id = "order".user_id
-  // join order_items on "order".id = order_items.order_id
-  // join menu on menu.id = order_items.menu_id
-  // where users.id = 1;
 
   router.get("/checkout", (req, res) => {
      knex
@@ -107,36 +97,17 @@ router.post("/checkout", (req, res) => {
 
   });
 
-  // router.post("/checkout", (req, res) => {
-  //   console.log(req.body);
-
-  //    knex
-  //     .select('name')
-  //     .from('menu')
-  //     .where('menu.id', '=', itemId)
-  //     .then((results) => {
-
-  //       console.log(results);
-  //         const templateVars = {user: req.session.user_id,
-  //                               items: results}
-  //         res.render('checkout', templateVars);
-  //         })
-
-  // });
-
   router.get("/confirmation", (req, res) => {
     client.messages.create({
-        //Send to resturant owner
         body: 'So and so just ordered some food from you!  Get it ready!!',
-        to: '+16479200506', // Text this number
-        from: '+16474933577' // From a valid Twilio number
+        to: '+16479200506',
+        from: '+16474933577'
       })
       .then((message) => console.log(message.sid));
 
     const templateVars = {user: req.session.user_id}
     res.render('confirmation', templateVars);
   });
-
 
   router.get("/:id", (req, res) => {
     knex

@@ -14,7 +14,6 @@
     }
 }
 
-
 .typing-indicator {
   $ti-color-bg: white;
   background-color: $ti-color-bg;
@@ -74,11 +73,11 @@
 
 html {
   display: table;
-  height: 100%;
   width: 100%;
 }
 
 body {
+  padding-top: 0 !important;
   display: table-cell;
   vertical-align: middle;
 }
