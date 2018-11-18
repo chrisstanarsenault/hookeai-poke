@@ -106,7 +106,7 @@ const generate = (menuItem, append) => {
       <span> ${menuItem.name} ${menuItem.price/100}</span>
     </div>`
   );
-  const $delBtn = $(`<a href="#" class="delete"><i class="far fa-trash-alt"></i></a>`);
+  const $delBtn = $(`<a class="delete"><i class="far fa-trash-alt"></i></a>`);
   $delBtn.click(function(){
     deleteFromCart(menuItem.id);
   });
@@ -118,8 +118,7 @@ const generate = (menuItem, append) => {
     $($orderBox).append($menuItem);
     $($orderBox).append($delBtn);
   } else {
-
-  $(`#${menuItem.id}item`).text(countOfItems[menuItem.id]);
+    $(`#${menuItem.id}item`).text(countOfItems[menuItem.id]);
   }
 
 };
