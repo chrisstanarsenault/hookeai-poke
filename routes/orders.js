@@ -18,7 +18,6 @@ module.exports = (knex) => {
     knex
       .select('id', 'name', 'price')
       .from('menu')
-      // .where('menu.id', '=', req.query.itemIds)
       .then((results) => {
         var filteredResults = results.filter((item) => {
           return itemIds.indexOf(item.id.toString()) > -1;
@@ -32,10 +31,7 @@ module.exports = (knex) => {
 router.post("/checkout", (req, res) => {
 
      console.log("aaa");
-    // *** After Merged ***
-    // cart = req.body.cart;
 
-    // test obj
     let cart = [{
       quantity: 2,
       menu_id: 1
@@ -87,12 +83,6 @@ router.post("/checkout", (req, res) => {
       res.redirect('/orders/confirmation');
   });
 
-  // select menu.name, order_items.quantity, menu.price from "order"
-  // join users on users.id = "order".user_id
-  // join order_items on "order".id = order_items.order_id
-  // join menu on menu.id = order_items.menu_id
-  // where users.id = 1;
-
   router.get("/checkout", (req, res) => {
      knex
       .select('id', 'name', 'price')
@@ -105,23 +95,6 @@ router.post("/checkout", (req, res) => {
       });
 
   });
-
-  // router.post("/checkout", (req, res) => {
-  //   console.log(req.body);
-
-  //    knex
-  //     .select('name')
-  //     .from('menu')
-  //     .where('menu.id', '=', itemId)
-  //     .then((results) => {
-
-  //       console.log(results);
-  //         const templateVars = {user: req.session.user_id,
-  //                               items: results}
-  //         res.render('checkout', templateVars);
-  //         })
-
-  // });
 
   router.get("/confirmation", (req, res) => {
     client.messages.create({
