@@ -29,20 +29,26 @@ module.exports = (knex) => {
       })
   });
 
-router.post("/checkout", (req, res) => {
+  function getCartItems(items) {
+    let cart = [];
 
-     console.log("aaa");
+    for (let key in items) {
+      if (key.match(/menu_id/)) {
+        let menu_id = key.replace(/menu_id/, "");
+        let tmp = {
+          menu_id: menu_id,
+          quantity: items[key]
+        };
+        cart.push(tmp);
+      }
+    }
+    return cart;
+  }
 
-    let cart = [{
-      quantity: 2,
-      menu_id: 1
-    }, {
-      quantity: 1,
-      menu_id: 2
-    }, {
-      quantity: 5,
-      menu_id: 3
-    }];
+  router.post("/checkout", (req, res) => {
+
+    console.log(req.body);
+    let cart = getCartItems(req.body);
 
     knex.insert([{
           name: req.body["email"],
@@ -81,7 +87,7 @@ router.post("/checkout", (req, res) => {
           })
         )
 
-      res.redirect('/orders/confirmation');
+     res.redirect('/orders/confirmation');
   });
 
   router.get("/checkout", (req, res) => {
