@@ -40,8 +40,6 @@ const container = document.querySelector(".cart-items");
 // variable 'cart' set to local storage menu items selected by user
 const countOfItems = {};
 
-
-
 const deleteFromCart = (id) => {
     currentCart = currentCart.filter(function(value){
       return value != id;
@@ -85,17 +83,3 @@ const generate = (menuItem, append) => {
   }
 
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-

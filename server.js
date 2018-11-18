@@ -42,8 +42,6 @@ let sendTexts = () => {
     .then((message) => console.log(message.sid));
 }
 
-//+16479193668;
-
 app.use(bodyParser.urlencoded({
   extended: true
 }));
@@ -143,7 +141,3 @@ app.get("/", (req, res) => {
 HTTP.createServer(app).listen(8080, () => {
   console.log('Express server listening on port 8080');
 });
-
-// app.listen(PORT, () => {
-//   console.log("Example app listening on port " + PORT);
-// });
