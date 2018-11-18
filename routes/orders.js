@@ -1,5 +1,4 @@
 "use strict";
-const HTTP    = require('http')
 const express = require('express');
 const router = express.Router();
 
@@ -127,7 +126,7 @@ router.post("/checkout", (req, res) => {
   router.get("/confirmation", (req, res) => {
     client.messages.create({
         //Send to resturant owner
-        body: 'So and so just ordered some food from you!  Get it ready!!',
+        body: 'Poke bowls have been ordered!  Get it ready!!',
         to: '+16479200506', // Text this number
         from: '+16474933577' // From a valid Twilio number
       })
@@ -139,7 +138,6 @@ router.post("/checkout", (req, res) => {
     }
     res.render('confirmation', templateVars);
   });
-
 
   router.get("/:id", (req, res) => {
     knex
