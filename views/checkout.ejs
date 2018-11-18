@@ -27,40 +27,29 @@
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
       <h1 class="display-4">Review Your Cart!</h1>
-      <p class="lead">You're only moments away from recieving the best poke you've ever had in your life</p>
+      <p class="lead">You're only moments away from receiving the best poke you've ever had in your life</p>
     </div>
   </div>
 
 
-  <section id="form-container"> 
+  <section id="form-container">
     <div id="order-process-form">
-      <form>
-      <div class="cart-items">
-        <div class="head">Checkout</div>
-        <hr>
-        <div class="form-group row item-container">
-          <section class="item"></section>
-          <div class="price"></div>
-        </div>
-
-        <div class="total">TOTAL</div>
-      </div>
-
-
       <form method="POST" action="/orders/checkout">
-        
+
         <div class="cart-items">
           <div class="head">Checkout</div>
           <hr>
           <div class="form-group row item-container">
 
 
-            <section class="item"></section>
+
+
+            <div class="item"></div>
             <div class="price"></div>
           </div>
 
-          <div class="total">Total: 10.00</div>
         </div>
+        <div class="total">Total: 10.00</div>
 
         <div class="container payment">
           <form>
@@ -75,23 +64,21 @@
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
 
-            <!-- <div class="head">Payment Details </div> -->
-
             <div class="form-group">
               <label for="inputPhone">Phone number</label>
-              <input type="tel" class="form-control" id="phone-input-field" placeholder="+xxxxxxxxxxx"  name ="phone-number" pattern="+[0-9]{11}" required>
+              <input type="tel" class="form-control" id="phone-input-field"   name ="phone-number" pattern="+[0-9]{11}" value="+1" required>
             </div>
 
             <div class="form-group">
               <label for="control-label">Card Number</label>
               <div class="">
-                <input type="text" class="form-control" name="card-num" id="card-num" placeholder="xxxxxxxxxxxx" pattern="[0-9]{16}" required>
+                <input type="text" class="form-control" name="card-num" id="card-num" placeholder="0000-0000-0000-0000" pattern="[0-9]{16}" required>
               </div>
             </div>
 
             <div class="form-group">
               <label for="control-label">Expiration Date</label>
-              <div id = "exp"> 
+              <div id = "exp">
                 <select class="form-control" name="ex-month">
                   <option value="01">01</option>
                   <option value="02">02</option>
@@ -105,14 +92,14 @@
                   <option value="10">10</option>
                   <option value="11">11</option>
                   <option value="12">12</option>
-                </select>       
+                </select>
                 <select class="form-control" name="ex-year">
                   <option value="18">2018</option>
                   <option value="19">2019</option>
                   <option value="20">2020</option>
                   <option value="21">2021</option>
                   <option value="22">2022</option>
-                </select>            
+                </select>
               </div>
             </div>
 
@@ -128,153 +115,11 @@
 
     </div>
   </section>
-
-
-    <footer>
       <% include ./partials/_footer %>
-  </footer>
 <!-- JS & JQuery   -->
 <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-  crossorigin="anonymous"></script>
+<script type="text/javascript" src="/scripts/checkout.js"></script>
 
-  <script>
-    $( document ).ready(function() {
-      let currentCart = JSON.parse(localStorage.getItem("cart"));
-
-      const countOfItems = {};
-      currentCart.forEach((item) => {
-        if (!countOfItems[item])
-          countOfItems[item] = 0;
-        countOfItems[item] = countOfItems[item] + 1;
-      })
-      $.ajax( {
-        method: 'POST',
-        url: '/orders/getItemInformation',
-        data: {
-          itemIds: JSON.stringify(countOfItems)
-        },
-        dataType: 'json'
-        })
-        .then((menuItems) => {
-          menuItems.forEach((menuItem) => {
-            const quantity = countOfItems[menuItem.id]
-            const $quantitySelect = $('<div>')
-
-            const $menuItem = $(`
-            <div class="item">
-              <span>  ${menuItem.name} - $ ${menuItem.price/100}</span>
-    </footer>
-    <!-- JS & JQuery   -->
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-      crossorigin="anonymous"></script>
-
-    <script>
-      $(document).ready(function () {
-        let currentCart = JSON.parse(localStorage.getItem("cart"));
-
-        const countOfItems = {};
-        currentCart.forEach((item) => {
-          if (!countOfItems[item])
-            countOfItems[item] = 0;
-
-          countOfItems[item] = countOfItems[item] + 1;
-        })
-
-        let loadCart = () => {
-          $.ajax('/orders/checkout', {
-              method: 'GET'
-            })
-            .then(function (json) {
-              renderTweets(json)
-            });
-        };
-
-
-        $.ajax({
-            method: 'POST',
-            url: '/orders/getItemInformation',
-            data: {
-              itemIds: JSON.stringify(countOfItems)
-            },
-            dataType: 'json'
-          })
-          .then((menuItems) => {
-
-            menuItems.forEach((menuItem) => {
-              let quantity = countOfItems[menuItem.id]
-              const $quantitySelect = $(
-                `<select class="form-control quantity-select" >
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
-                </select>`
-              );
-              const $menuItem = $(
-                `
-            <div class="item">
-<span> ${menuItem.name} - $ ${menuItem.price/100} - QUANTITY: ${quantity} - (${menuItem.price/100 * quantity})</span>
-
-            </div>
-            `
-              );
-              const $addButton = $('<i>').attr('class', 'fas fa-plus');
-
-           const $menuForm = $('.item-container').append($quantitySelect);
-            const $addButton  = $('<i>').attr('class', 'fas fa-plus').appendTo($menuForm);
-            $($menuForm).append(quantity);
-            const $deleteButton  = $('<i>').attr('class', 'fas fa-minus').appendTo($menuForm);
-            $($menuForm).append($menuItem);
-
-          })
-        });
-    });
-    // variable 'container' set to cart items container
-    const container = document.querySelector(".cart-items");
-    // variable 'cart' set to local storage menu items selected by user
-    const cart = JSON.parse(localStorage.getItem("cart"));
-    for (const itemId of cart) {
-      let listItem = document.createElement('p');
-    };
-
-  </script>
-
-              // const $likeButton = $('<i>').attr('class', 'fas fa-heart').text(obj.likes).appendTo($icons);
-
-              const $menuForm = $('.item-container').append($quantitySelect);
-              $($menuForm).append($menuItem);
-              $($addButton).appendTo($menuForm);
-              const $quantity = $($menuForm).append(quantity);
-              const $deleteButton = $('<i>').attr('class', 'fas fa-minus').appendTo($menuForm);
-
-
-              // $($addButton).on('click', function () {
-              //   quantity++;
-
-              //   console.log('added')
-              //   console.log(quantity)
-              // })
-
-            })
-          });
-
-      });
-      // variable 'container' set to cart items container
-      const container = document.querySelector(".cart-items");
-      // variable 'cart' set to local storage menu items selected by user
-      const cart = JSON.parse(localStorage.getItem("cart"));
-      for (const itemId of cart) {
-        let listItem = document.createElement('p');
-      };
-    </script>
 </body>
 
 </html>
