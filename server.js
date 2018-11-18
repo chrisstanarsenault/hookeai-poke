@@ -51,28 +51,37 @@ app.use(bodyParser.urlencoded({
 //Webhooks - Restaurant responds with either Ready or Confirmed, and correct response message
 app.post('/sms', (req, res) => {
   const twiml = new MessagingResponse();
+  knex
+    .select('phone')
+    .from("users")
+    .where("id", '=', 5)
+    .then((result) => {
+      const phoneNumber = JSON.stringify(result[0].phone);
+       if (req.body.Body == 'Ready') {
+         console.log(phoneNumber)
+         //  twiml.redirect('http://3318f854.ngrok.io/sms/customer/ready');
+         client.messages.create({
+             body: 'Your order from Hookeai Poke is ready for pickup!  Go to location: 416 Leslie St to pick up and enjoy.',
+             to: phoneNumber, // Text this number
+             from: '+16474933577' // From a valid Twilio number
+           })
+           .then((message) => console.log(message.sid));
+       } else if (req.body.Body == 'Confirmed') {
+         //  twiml.redirect('http://3318f854.ngrok.io/sms/customer/confirmed');
+         client.messages.create({
+             body: 'Your order from Hookeai Poke has been recieved and being prepared!  You will be notified when ready.',
+             to: phoneNumber, // Text this number
+             from: '+16474933577' // From a valid Twilio number
+           })
+           .then((message) => console.log(message.sid));
+       } else {
+         twiml.message(
+           'Derp, I dont understand what you said.  Please say either Confirmed or Ready.'
+         );
+       }
+    })
 
- if (req.body.Body == 'Ready') {
-  //  twiml.redirect('http://3318f854.ngrok.io/sms/customer/ready');
-   client.messages.create({
-     body: 'Your order from Hookeai Poke is ready for pickup!  Go to location: 416 Leslie St to pick up and enjoy.',
-     to: '+16479200506', // Text this number
-     from: '+16474933577' // From a valid Twilio number
-   })
-     .then((message) => console.log(message.sid));
- } else if (req.body.Body == 'Confirmed') {
-  //  twiml.redirect('http://3318f854.ngrok.io/sms/customer/confirmed');
-   client.messages.create({
-     body: 'Your order from Hookeai Poke has been recieved and being prepared!  You will be notified when ready.',
-     to: '+16479200506', // Text this number
-     from: '+16474933577' // From a valid Twilio number
-   })
-     .then((message) => console.log(message.sid));
- } else {
-   twiml.message(
-     'Derp, I dont understand what you said.  Please say either Confirmed or Ready.'
-   );
- }
+
 
   res.writeHead(200, {'Content-Type': 'text/xml'});
   res.end(twiml.toString());
@@ -99,10 +108,7 @@ app.post('/sms/customer/ready', (req, res) => {
 })
 
 
-//function to send texts with trillio <---- comment out when not in use!!!
 
-//function to send texts with trillio
-// sendTexts()
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.

@@ -105,7 +105,10 @@ router.post("/checkout", (req, res) => {
       })
       .then((message) => console.log(message.sid));
 
-    const templateVars = {user: req.session.user_id}
+    const templateVars = {
+      user: req.session.user_id,
+      phone: req.body["phone-number"]
+    }
     res.render('confirmation', templateVars);
   });
 
