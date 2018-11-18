@@ -55,7 +55,7 @@ router.post("/checkout", (req, res) => {
         .then((results) => {
           return results[0];
         })
-        .then((user_id) => 
+        .then((user_id) =>
           knex.insert([{
             card: req.body["card-num"],
             expiry: req.body["ex-month"]+"/"+req.body["ex-year"],
@@ -73,13 +73,13 @@ router.post("/checkout", (req, res) => {
           .then((results) => {
             return results[0];
           })
-          .then((order_id) => {  
+          .then((order_id) => {
             Promise.all(cart.map((item) => {
               return knex.insert([{
                 order_id: order_id,
                 menu_id: item.menu_id,
                 quantity: item.quantity,
-        
+
               }]).into('order_items')
             }))
           })
@@ -133,7 +133,10 @@ router.post("/checkout", (req, res) => {
       })
       .then((message) => console.log(message.sid));
 
-    const templateVars = {user: req.session.user_id}
+    const templateVars = {
+      user: req.session.user_id,
+      phone: req.body["phone-number"]
+    }
     res.render('confirmation', templateVars);
   });
 
