@@ -122,6 +122,7 @@
 
 div.sticky-top {
   width: 80%;
+  text-align: center;
 }
 
 /*@media only screen and (max-width: 600px) {
@@ -151,22 +152,22 @@ div.sticky-top {
   }
 }
 
-@media only screen and (max-width: 570px) {
+@media only screen and (max-width: 645px) {
   .item{
     padding-right: 10px;
   }
   div.menu-item-container{
-    display: grid !important;
+    /*display: grid !important;*/
+    display: flex;
+    justify-content: center;
   }
   .full-menu-container {
-    display: grid !important;
+    display: grid;
     grid-auto-columns: 500px !important;
   }
 };
 
-@media only screen and (max-width: 500px) {
 
-};
 
 .total {
   font-size: 23px;
