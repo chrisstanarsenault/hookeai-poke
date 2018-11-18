@@ -10,7 +10,7 @@ hr{
     text-align: left;
 }
 div.cart-items {
-  width: 45%;
+  width: 55%;
   display: flex;
   justify-content: center;
   /*align-content: center;*/
@@ -38,6 +38,11 @@ div.cart-items {
   }
 }
 
+.item-container {
+  display: flex;
+  justify-content: end;
+}
+
 div.payment {
   display: flex;
   justify-content: center;
@@ -59,8 +64,10 @@ div.payment {
 */
 .total{
   padding-top: 20px;
-  font-size: 18px;
+  font-size: 28px;
   padding-bottom: 20px;
+  width: 55%;
+  margin: auto;
 }
 
 .totalprice {
@@ -106,8 +113,7 @@ div.payment {
     }
 }
 
-
-
-
-
+.delete {
+  margin-right: 10px;
+}
 

@@ -12,13 +12,14 @@ form.form{
   display: inline-block;
 }
 
-nav.navbar {
+nav.navbar-expand-lg {
    background-color: transparent;
    background: transparent;
    border-color: transparent;
-   padding: 20px 110px;
+   padding: 20px 90px;
    padding-bottom: 10px;
    font-family: Montserrat;
+   transition: 0.5s;
 }
 
 .modal-title{
@@ -30,6 +31,26 @@ nav.navbar {
   font-size: 1.5rem !important;
   text-transform: uppercase;
   letter-spacing: 2px;
+  transition: 0.5s;
+}
+
+@media only screen and (max-width: 570px) {
+  .navbar-brand {
+    font-size: 94% !important;
+  }
+  img#logo{
+    width: 30px !important;
+  }
+  .navbar-expand-lg {
+    padding-left: 30px !important;
+    padding-right: 40px !important;
+  }
+};
+
+@media only screen and (max-width: 430px){
+  .navbar-expand-lg {
+    padding-right: 0px !important;
+  }
 }
 
 .navbar-brand small {
@@ -65,6 +86,7 @@ button.navbar-toggler {
 
 img#logo{
   width: 60px;
+  transition: 0.5s;
 }
 
 .loginBTN {
