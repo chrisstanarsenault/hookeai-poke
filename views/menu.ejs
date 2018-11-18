@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Hookeai Poke</title>
+  <title>Hookeai Poke</title>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,9 +13,8 @@
   <link rel="stylesheet" href="/styles/footer.css" type="text/css" />
 
 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-  <!--   external JS -->
-  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
 
   <!-- Bootstrap CDN -->
   <!-- CSS -->
@@ -29,8 +28,6 @@
 
 
 <body>
-
-
  <% include ./partials/_header %>
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
@@ -51,7 +48,7 @@
                     <div> <%-menuItem.description %></div>
                     <div class="price"> $<%-menuItem.price / 100%> </div>
                   </div>
-                  <input class="btn btn-secondary" type="button" onclick="addToCart(<%- menuItem.id %>)" value="+">
+                  <input class="btn btn-secondary addButton" id="<%- menuItem.id %>" type="button" onclick="addToCart(<%- menuItem.id %>, '<%- menuItem.name %>', <%- menuItem.price %>)" value="+">
                 </div>
               <% }); %>
             </section>
@@ -59,29 +56,15 @@
         <div class="col-4">
             <div class="sticky-top">
                 <h4><img id="puffer" src="../pictures/menu/pufferfish.png"> Your Cart</h4>
-                <div class="order">
-                  <a href="#" class="delete"><i class="far fa-trash-alt"></i></a>
-                  <div class="item">Poke Bowl 1</div>
-                  <div class="price">$11.99</div>
-                </div>
+                <section class="order-box">
 
-                <div class="order">
-                  <a href="#" class="delete"><i class="far fa-trash-alt"></i></a>
-                  <div class="item">Poke Bowl 1</div>
-                  <div class="price">$11.99</div>
-                </div>
+                </section>
 
-<!--   <section id="checkout-button-container" class="item">
-    <form action="/orders/checkout" method="GET">
-      <input id="itemsIdForm" type="hidden" value="">
-      <input class="checkout-button" type="submit" value="Proceed to Checkout">
-    </form>
-  </section> -->
-
-                <div class="total">Total</div>
-
-        <form action="/orders/checkout" >
+        <form action="/orders/checkout">
         <button type="submit" class="btn btn-info">Check me out!<a href="/orders/checkout"></a></button>
+              </form>
+              </div>
+
             </div>
           </div>
         </form>
@@ -91,30 +74,10 @@
     </div>
 </div>
 
-  <!-- JS & JQuery   -->
-<script src="https://code.jquery.com/jquery-3.0.0.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/menu.js"></script>
 
   <script>
-
-    $( document ).ready(function() {
-        getItems();
-    });
-
-    function getItems() {
-      let currentCart = localStorage.getItem("cart");
-      $("#itemsIdForm").attr("value", JSON.stringify(currentCart));
-    }
-
-    function addToCart(id) {
-      let currentCart = localStorage.getItem("cart");
-      if (currentCart === null) {
-        currentCart = [];
-      } else {
-        currentCart = JSON.parse(currentCart);
-      }
-      currentCart.push(id);
-      localStorage.setItem("cart", JSON.stringify(currentCart));
-    };
 
   </script>
 </body>
