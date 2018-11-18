@@ -14,9 +14,7 @@
 
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-  <!--   external JS -->
 
-  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
 
   <!-- Bootstrap CDN -->
   <!-- CSS -->
@@ -30,8 +28,6 @@
 
 
 <body>
-
-
  <% include ./partials/_header %>
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
@@ -52,7 +48,7 @@
                     <div> <%-menuItem.description %></div>
                     <div class="price"> $<%-menuItem.price / 100%> </div>
                   </div>
-                  <input class="btn btn-secondary" type="button" onclick="addToCart(<%- menuItem.id %>)" value="+">
+                  <input class="btn btn-secondary addButton" id="<%- menuItem.id %>" type="button" onclick="addToCart(<%- menuItem.id %>, '<%- menuItem.name %>', <%- menuItem.price %>)" value="+">
                 </div>
               <% }); %>
             </section>
@@ -64,15 +60,12 @@
 
 
                 </section>
-
-
-
-
                 <div class="total">Total</div>
 
-        <form action="/orders/checkout" >
+        <form action="/orders/checkout">
         <button type="submit" class="btn btn-info">Check me out!<a href="/orders/checkout"></a></button>
-                          </div>
+              </form>
+              </div>
 
             </div>
           </div>
@@ -83,91 +76,10 @@
     </div>
 </div>
 
-  <!-- JS & JQuery   -->
-<script src="https://code.jquery.com/jquery-3.0.0.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
 
   <script>
-
-    $( document ).ready(function() {
-
-      let currentCart = JSON.parse(localStorage.getItem("cart"));
-
-      const countOfItems = {};
-      currentCart.forEach((item) => {
-        if (!countOfItems[item])
-          countOfItems[item] = 0;
-
-        countOfItems[item] = countOfItems[item] + 1;
-      })
-      $.ajax( {
-        method: 'POST',
-        url: '/orders/getItemInformation',
-        data: {
-          itemIds: JSON.stringify(countOfItems)
-        },
-        dataType: 'json'
-        })
-        .then((menuItems) => {
-          menuItems.forEach((menuItem) => {
-            const quantity = countOfItems[menuItem.id]
-            const $menuItem = $(`
-            <div class="item">
-              <span>${quantity} bowl(s)- ${menuItem.name}    ${menuItem.price/100}</span>
-            </div>
-            `);
-
-
-          const $orderBox = $('<div>').attr('class', 'order').appendTo('.order-box');
-          $($orderBox).append($menuItem);
-          $($orderBox).append(`<a href="#" class="delete"><i class="far fa-trash-alt"></i></a>`);
-
-
-
-           // const $menuForm = $('.item-container').append($quantitySelect);
-           //  $($menuForm).append($menuItem);
-           // const $addButton  = $('<i>').attr('class', 'fas fa-plus').appendTo($menuForm);
-           //  $($menuForm).append(quantity);
-           // const $deleteButton  = $('<i>').attr('class', 'fas fa-minus').appendTo($menuForm);
-          })
-        });
-
-        getItems();
-
-
-
-
-    });
-
-                //     <div class="order">
-                //   <a href="#" class="delete"><i class="far fa-trash-alt"></i></a>
-                //   <div class="item">Poke Bowl 1</div>
-                //   <div class="price">$11.99</div>
-                // </div>
-
-    function getItems() {
-      let currentCart = localStorage.getItem("cart");
-      $("#itemsIdForm").attr("value", JSON.stringify(currentCart));
-    }
-
-    function addToCart(id) {
-      let currentCart = localStorage.getItem("cart");
-      if (currentCart === null) {
-        currentCart = [];
-      } else {
-        currentCart = JSON.parse(currentCart);
-      }
-      currentCart.push(id);
-      localStorage.setItem("cart", JSON.stringify(currentCart));
-    };
-    // variable 'container' set to cart items container
-   const container = document.querySelector(".cart-items");
-   // variable 'cart' set to local storage menu items selected by user
-    const cart = JSON.parse(localStorage.getItem("cart"));
-    for (const itemId of cart) {
-      let listItem = document.createElement('p');
-    };
-
-
 
   </script>
 </body>

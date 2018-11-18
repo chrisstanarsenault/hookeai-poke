@@ -45,7 +45,7 @@
           <div class="price"></div>
         </div>
 
-        <div class="total">TOTAL: 10.00</div>
+        <div class="total">TOTAL</div>
       </div>
 
       <div class="container payment">
@@ -88,7 +88,6 @@
       currentCart.forEach((item) => {
         if (!countOfItems[item])
           countOfItems[item] = 0;
-
         countOfItems[item] = countOfItems[item] + 1;
       })
       $.ajax( {
@@ -110,9 +109,6 @@
             </div>
             `);
 
-
-    // const $likeButton = $('<i>').attr('class', 'fas fa-heart').text(obj.likes).appendTo($icons);
-
            const $menuForm = $('.item-container').append($quantitySelect);
             const $addButton  = $('<i>').attr('class', 'fas fa-plus').appendTo($menuForm);
             $($menuForm).append(quantity);
@@ -123,8 +119,8 @@
         });
     });
     // variable 'container' set to cart items container
-   const container = document.querySelector(".cart-items");
-   // variable 'cart' set to local storage menu items selected by user
+    const container = document.querySelector(".cart-items");
+    // variable 'cart' set to local storage menu items selected by user
     const cart = JSON.parse(localStorage.getItem("cart"));
     for (const itemId of cart) {
       let listItem = document.createElement('p');
