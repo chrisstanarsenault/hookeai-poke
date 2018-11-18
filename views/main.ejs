@@ -2,87 +2,115 @@
 <html lang="en">
   <head>
     <title>Hookeai Poke</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <!-- External CSS -->
     <link rel="stylesheet" href="/styles/main-page.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/footer.css" type="text/css" />
 
     <!-- Bootstrap CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-      crossorigin="anonymous">
+    <link rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"/>
     <!-- CSS -->
 
-      <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
-
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+      rel="stylesheet"/>
   </head>
-     <% include ./partials/_header %>
-
-    <body>
+  <body>
+    <% include ./partials/_header %>
     <div class="container-fluid">
-      <img id="mainIMG" src="../pictures/main/banner-poke.jpg">
+      <img id="mainIMG" src="../pictures/main/banner-poke.jpg" />
 
-    <!-- Menu Button/Lead to Menu -->
+      <!-- Menu Button/Lead to Menu -->
 
-    <div class="menu container">
-      <div class="about">
-        <h1>Aloha! </h1>
-        <p>We are Hookeai Poke, Toronto's best destination for Poke bowls. What are Poke bowls you ask? It's a Hawaiian
-          dish that includes diced fish, rice, veggies, and more! Since you're still reading, it seems like you're interested! Check out our menu and we're sure you'll find something you'll like! You're just a few clicks away from experiencing a taste of paradise</p>
-      </div>
-    <form action="menu">
-      <button type="submit" class="btn btn-info">Take me to the menu!!<a href="menu"></a></button>
-    </form>
+      <div class="menu container">
+        <div class="about">
+          <h1>Aloha!</h1>
+          <p>
+            We are Hookeai Poke, Toronto's best destination for Poke bowls. What
+            are Poke bowls you ask? It's a Hawaiian dish that includes diced
+            fish, rice, veggies, and more! Since you're still reading, it seems
+            like you're interested! Check out our menu and we're sure you'll
+            find something you'll like! You're just a few clicks away from
+            experiencing a taste of paradise
+          </p>
+        </div>
+        <form action="menu">
+          <button type="submit" class="btn btn-info">
+            Take me to the menu!!<a href="menu"></a>
+          </button>
+        </form>
 
-      <div class="pictures">
-          <div id="slide" class="carousel slide" data-ride="carousel" data-interval="1900">
+        <div class="pictures">
+          <div
+            id="slide"
+            class="carousel slide"
+            data-ride="carousel"
+            data-interval="1900"
+          >
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img class="d-block w-100" src="https://c2.staticflickr.com/2/1929/43918972890_919060b777_n.jpg" alt="Poke Bowl 1">
+                <img
+                  class="d-block w-100"
+                  src="https://c2.staticflickr.com/2/1929/43918972890_919060b777_n.jpg"
+                  alt="Poke Bowl 1"
+                />
               </div>
               <div class="carousel-item">
-                <img class="d-block w-100" src="https://c1.staticflickr.com/5/4427/36896529631_f5df19e3e0_n.jpg" alt="Poke Bowl 2">
+                <img
+                  class="d-block w-100"
+                  src="https://c1.staticflickr.com/5/4427/36896529631_f5df19e3e0_n.jpg"
+                  alt="Poke Bowl 2"
+                />
               </div>
               <div class="carousel-item">
-                <img class="d-block w-100" src="https://c1.staticflickr.com/5/4770/28327590049_fc7fdc91d3_n.jpg" alt="Poke Bowl 3">
+                <img
+                  class="d-block w-100"
+                  src="https://c1.staticflickr.com/5/4770/28327590049_fc7fdc91d3_n.jpg"
+                  alt="Poke Bowl 3"
+                />
               </div>
             </div>
           </div>
-      </div>
-    </div>
-
-
-
-
-    <!-- User Reviews-->
-    <section id="user-review-container" class="item">
-      <div class="user-review-one">
-        <img class="user-review-avatar-one" src="../pictures/main/male-avatar.png" alt="user review avatar">
-        <div class="speech-bubble-left">
-          <p class="user-review-text">"Yummy yummy, in my tummy!"</p>
         </div>
       </div>
 
-      <div class="user-review-two">
-        <div class="speech-bubble-right">
-          <p class="user-review-text">"Hookeai Poke is more than just okie dokie"</p>
+      <!-- User Reviews -->
+      <section id="user-review-container" class="item">
+        <div class="user-review-one">
+          <img
+            class="user-review-avatar-one"
+            src="../pictures/main/male-avatar.png"
+            alt="user review avatar"
+          />
+          <div class="speech-bubble-left">
+            <p class="user-review-text">"Yummy yummy, in my tummy!"</p>
+          </div>
         </div>
-        <img class="user-review-avatar-two" src="../pictures/main/female-avatar.png" alt="user review avatar">
-      </div>
-    </section>
 
-
+        <div class="user-review-two">
+          <div class="speech-bubble-right">
+            <p class="user-review-text">
+              "Hookeai Poke is more than just okie dokie"
+            </p>
+          </div>
+          <img
+            class="user-review-avatar-two"
+            src="../pictures/main/female-avatar.png"
+            alt="user review avatar"
+          />
+        </div>
+      </section>
     </div>
 
-    <!-- JS & JQuery   -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
       crossorigin="anonymous"></script>
   </body>
-
-      <footer>
-        <% include ./partials/_footer %>
-      </footer>
-
+ <% include ./partials/_footer %>
 </html>
