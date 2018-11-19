@@ -46,7 +46,13 @@ const countOfItems = {};
 
 
 
-const deleteFromCart = (id) => {
+const deleteFromCart = (id, eachTotal) => {
+
+    let currentTotal = $(".total").html().slice(7);
+    let newTotal = currentTotal - eachTotal;
+    $(".total").text("Total: ");
+    $(".total").append(newTotal.toFixed(2));
+
     currentCart = currentCart.filter(function(value){
       return value != id;
     });
@@ -75,13 +81,14 @@ const generate = (menuItem, append) => {
       <span> ${menuItem.name} ${menuItem.price/100}</span>
     </div>`
   );
-  total += (menuItem.price / 100) * quantity;
+  let itemTotal = (menuItem.price / 100) * quantity;
+  total += itemTotal;
   total2 = parseFloat(total).toFixed(2);
 
   const $delBtn = $(`<a class="delete"><i class="far fa-trash-alt"></i></a>`);
-  console.log(total)
+
   $delBtn.click(function(){
-    deleteFromCart(menuItem.id);
+    deleteFromCart(menuItem.id, itemTotal);
   });
 
   if(!currentCart.includes(menuItem.id) || append){
