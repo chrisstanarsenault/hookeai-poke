@@ -24,7 +24,8 @@ router.post('/', (req, res) => {
   knex
     .select('phone')
     .from("users")
-    .where("id", '=', 5)
+    .orderBy('id', 'DESC')
+    .limit(1)
     .then((result) => {
       const phoneNumber = JSON.stringify(result[0].phone);
       if (req.body.Body == 'Ready') {
