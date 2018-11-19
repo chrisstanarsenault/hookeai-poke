@@ -16,8 +16,10 @@ $( document ).ready(function() {
   })
 
   const createOrder = (obj) => {
+    // let total = 0;
     obj.forEach(function(el){
       generate(el, true);
+
     });
   };
 
@@ -31,6 +33,8 @@ $( document ).ready(function() {
     })
     .then((menuItems) => {
       createOrder(menuItems);
+    $(".total").append(total2);
+
   });
 });
 
@@ -60,7 +64,9 @@ function addToCart(id, name, price) {
   generate(object, false);
   currentCart.push(id);
   localStorage.setItem("cart", JSON.stringify(currentCart));
+
 };
+let total = 0;
 
 const generate = (menuItem, append) => {
   let quantity = countOfItems[menuItem.id];
@@ -69,22 +75,33 @@ const generate = (menuItem, append) => {
       <span> ${menuItem.name} ${menuItem.price/100}</span>
     </div>`
   );
+  total += (menuItem.price / 100) * quantity;
+  total2 = parseFloat(total).toFixed(2);
+
   const $delBtn = $(`<a class="delete"><i class="far fa-trash-alt"></i></a>`);
+  console.log(total)
   $delBtn.click(function(){
     deleteFromCart(menuItem.id);
   });
 
   if(!currentCart.includes(menuItem.id) || append){
+
     const $quantity = $(`<span class="item" id="${menuItem.id}item" >${quantity}</span><input type="hidden" name="menu_id${menuItem.id}"value=${quantity}>`);
+
     const $orderBox = $('<div>').attr('class', 'item-container').attr('id', `${menuItem.id}del`).appendTo('.cart-items');
     $($orderBox).append($delBtn);
     $($orderBox).append($quantity);
     $($orderBox).append($menuItem);
+
+
   } else {
     $(`#${menuItem.id}item`).text(countOfItems[menuItem.id]);
+
   }
 
+
 };
+
 
 
 
