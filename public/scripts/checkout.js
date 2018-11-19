@@ -86,7 +86,8 @@ const generate = (menuItem, append) => {
 
   if(!currentCart.includes(menuItem.id) || append){
 
-    const $quantity = $(`<span class="item" id="${menuItem.id}item" >${quantity}</span>`);
+    const $quantity = $(`<span class="item" id="${menuItem.id}item" >${quantity}</span><input type="hidden" name="menu_id${menuItem.id}"value=${quantity}>`);
+
     const $orderBox = $('<div>').attr('class', 'item-container').attr('id', `${menuItem.id}del`).appendTo('.cart-items');
     $($orderBox).append($delBtn);
     $($orderBox).append($quantity);
