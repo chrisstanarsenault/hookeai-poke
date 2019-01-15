@@ -1,29 +1,42 @@
-# Node Skeleton
+# Hookeai Poke
+Hookeai Poke is a full-stack Food Pick-up Ordering app for a fictitious restaurant called 'Hookeai Poke'.
 
-## Project Setup
+Hungry clients of Hookeai Poke can visit this website, select one or more dishes and place an order for pick-up. The restaurant will receive a text to start the order, which then they can text 'Confirmed' to send a message to the customer that they have received the order and it is being prepared.  When the order is ready for pick up, they can then text 'Ready', which then will notify the customer they can now go pick up the order.
 
-1. Create your own empty repo on GitHub
-2. Clone this repository (do not fork)
-  - Suggestion: When cloning, specify a different folder name that is relevant to your project
-3. Remove the git remote: `git remote rm origin`
-4. Add a remote for your origin: `git remote add origin <your github repo URL>`
-5. Push to the new origin: `git push -u origin master`
-6. Verify that the skeleton code now shows up in your repo on GitHub
+This app was created by: Chris Arsenault, Ivana Lee, Ryan Kendrick and Azusa Shimazaki.
 
 ## Getting Started
 
-1. Create the `.env` by using `.env.example` as a reference: `cp .env.example .env`
-2. Update the .env file with your correct local information
-3. Install dependencies: `npm i`
-4. Fix to binaries for sass: `npm rebuild node-sass`
-5. Run migrations: `npm run knex migrate:latest`
-  - Check the migrations folder to see what gets created in the DB
-6. Run the seed: `npm run knex seed:run`
-  - Check the seeds file to see what gets seeded in the DB
-7. Run the server: `npm run local`
-8. Visit `http://localhost:8080/`
+1. Clone this repo
+2. Install dependencies using `npm install`
+3. Run migrations: `npm run knex migrate:latest`
+4. Run seed files: `npm run knex seed:run`
+5. Start the web server using `npm run local`.
+6. Visit `http://localhost:8080/`
+
+Important Note: As the twilio API is used to send texts, you will need to set up an account at www.twilio.com (a telecomm API service), as well as register for a twilio phone number and register any numbers you want on account.  You will also need to download ngrok and set up an account with them as well to run the webhook intergration, as well as connect it to your Twilo account.
 
 ## Dependencies
 
-- Node 5.10.x or above
-- NPM 3.8.x or above
+- Node: 5.10.x or above
+- NPM: 3.8.x or above
+- BodyParser: ^1.15.2
+- Cookie-session: ^2.0.0-beta.3
+- Dotenv: ^2.0.0
+- Ejs: ^2.4.1
+- Express: ^4.13.4
+- Knex: ^0.11.7
+- Knex-logger: ^0.1.0
+- Morgan: ^1.11.7
+- Node-sass-middleware: ^0.9.8
+- Pg: ^6.0.2
+- Twilio: ^3.23.2
+
+## Screenshots
+!["Landing page1"](https://github.com/chrisstanarsenault/hookeai-poke/blob/master/docs/hookeai-poke-ss-main1.png?raw=true)
+!["Landing page2"](https://github.com/chrisstanarsenault/hookeai-poke/blob/master/docs/hookeai-poke-ss-main2.png?raw=true)
+!["Menu page1"](https://github.com/chrisstanarsenault/hookeai-poke/blob/master/docs/hookeai-poke-ss-menu1.png?raw=true)
+!["Menu page2"](https://github.com/chrisstanarsenault/hookeai-poke/blob/master/docs/hookeai-poke-ss-menu2.png?raw=true)
+!["Checkout page"](https://github.com/chrisstanarsenault/hookeai-poke/blob/master/docs/hookeai-poke-ss-checkout.png?raw=true)
+!["Confirmation page"](https://github.com/chrisstanarsenault/hookeai-poke/blob/master/docs/hookeai-poke-ss-confirmation.png?raw=true)
+
