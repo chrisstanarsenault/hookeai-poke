@@ -25,6 +25,9 @@
     "pg": "^6.0.2",
     "twilio": "^3.23.2"
   },
+  "engines": {
+  "node": "^5.0.0"
+},
   "devDependencies": {
     "nodemon": "^1.9.2"
   }
