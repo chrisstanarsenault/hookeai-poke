@@ -14,20 +14,21 @@
   "dependencies": {
     "body-parser": "^1.15.2",
     "cookie-session": "^2.0.0-beta.3",
-    "node": "^10.0.0",
     "dotenv": "^2.0.0",
     "ejs": "^2.4.1",
+    "event-stream": "^4.0.1",
     "express": "^4.13.4",
     "knex": "^0.11.7",
     "knex-logger": "^0.1.0",
     "morgan": "^1.7.0",
+    "node": "^10.0.0",
     "node-sass-middleware": "^0.9.8",
     "pg": "^6.0.2",
     "twilio": "^3.23.2"
   },
   "engines": {
-  "node": "^5.0.0"
-},
+    "node": "^5.0.0"
+  },
   "devDependencies": {
     "nodemon": "^1.9.2"
   }
