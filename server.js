@@ -65,7 +65,7 @@ app.get("/", (req, res) => {
   res.render("main", templateVars);
 });
 
-HTTP.createServer(app).listen(8080, () => {
+HTTP.createServer(app).listen(PORT, () => {
   console.log('Express server listening on port 8080');
 });
 
