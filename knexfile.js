@@ -13,11 +13,11 @@ module.exports = {
       ssl      : process.env.DB_SSL
     },
     migrations: {
-      directory: './db/migrations',
+      directory: __dirname + '/db/migrations',
       tableName: 'migrations'
     },
     seeds: {
-      directory: './db/seeds'
+      directory: __dirname + '/db/seeds'
     }
   },
 
